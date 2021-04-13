@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dnagetest-dev-92528-authRole",
+      "UnauthRoleArn": "arn:aws:iam::858821991613:role/amplify-dnagetest-dev-92528-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::858821991613:role/amplify-dnagetest-dev-92528-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-dnagetest-dev-92528-deployment",
+      "UnauthRoleName": "amplify-dnagetest-dev-92528-unauthRole",
+      "StackName": "amplify-dnagetest-dev-92528",
+      "StackId": "arn:aws:cloudformation:us-west-2:858821991613:stack/amplify-dnagetest-dev-92528/f78b1a00-9c74-11eb-9633-0a5518e4f951",
+      "AmplifyAppId": "d1jeidv5d95lrl"
+    },
+    "categories": {
+      "auth": {
+        "dnagetestc61de0d6": {}
+      }
+    }
+  }
+}
