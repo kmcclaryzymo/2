@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
-  View, Text, StyleSheet, TextInput, Button
+  View, Text, StyleSheet, TextInput, Button, ScrollView
 } from 'react-native'
 
 import { API, graphqlOperation } from 'aws-amplify'
@@ -41,6 +41,7 @@ const App = () => {
   }
 
   return (
+    <ScrollView>
     <View style={styles.container}>
       <TextInput
         onChangeText={val => setInput('name', val)}
@@ -66,10 +67,12 @@ const App = () => {
           <View key={todo.id ? todo.id : index} style={styles.todo}>
             <Text style={styles.todoName}>{todo.name}</Text>
             <Text>{todo.description}</Text>
+            <Text>{todo.newcat}</Text>
           </View>
         ))
       }
     </View>
+    </ScrollView>
   )
 }
 
