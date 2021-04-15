@@ -8,7 +8,8 @@ import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
 import ConfirmSignUp from './src/screens/ConfirmSignUp';
 import Home from './src/screens/Home';
-import ReportData from './src/screens/ReportData'
+import ReportData from './src/screens/ReportData';
+import Graphs from './src/screens/Graphs';
 Amplify.configure(config);
 
 
@@ -46,6 +47,12 @@ const AppNavigator = props => {
       <AppStack.Screen name="ReportData">
         {screenProps => (
           <ReportData {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
+      </AppStack.Screen>
+
+      <AppStack.Screen name="Graphs">
+        {screenProps => (
+          <Graphs {...screenProps} updateAuthState={props.updateAuthState} />
         )}
       </AppStack.Screen>
 

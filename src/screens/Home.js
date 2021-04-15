@@ -19,12 +19,17 @@ export default function Home({ navigation, updateAuthState }) {
     navigation.navigate('ReportData')
   }
 
+  const goToGraphs = () => {
+    navigation.navigate('Graphs')
+  }
+
   return (
 
     <View style={styles.container}>
       <Text>  + aaaa</Text>
       <Button title="Sign Out" color="tomato" onPress={signOut} />
       <Button title="Report Data" color="dodgerblue" onPress={goToReportData}/>
+      <Button title="Graphs" color="gold" onPress={goToGraphs}/>
     </View>
   );
 }
