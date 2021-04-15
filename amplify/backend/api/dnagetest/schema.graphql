@@ -3,5 +3,6 @@ type Todo @model @auth(rules: [{allow: private}]) {
   name: String!
   description: String
   newcat: String
+  emailAddress: String
 }
  

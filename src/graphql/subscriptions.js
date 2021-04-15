@@ -8,6 +8,7 @@ export const onCreateTodo = /* GraphQL */ `
       name
       description
       newcat
+      emailAddress
       createdAt
       updatedAt
     }
