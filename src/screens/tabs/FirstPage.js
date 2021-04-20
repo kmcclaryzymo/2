@@ -5,11 +5,16 @@ import {
   Text,
   View,
   processColor,
-  Dimensions
+  Dimensions,
+  Image,
+  Button
+
 } from 'react-native';
 
 import {BarChart} from 'react-native-charts-wrapper';
 import { ClipPath } from 'react-native-svg';
+
+import { Auth } from 'aws-amplify';
 
 const GREEN = processColor('#71BD6A');
 const RED = processColor('#D14B5A');
@@ -18,6 +23,14 @@ const GREY = processColor('#0E1936');
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+async function signOut() {
+  try {
+    await Auth.signOut();
+    updateAuthState('loggedOut');
+  } catch (error) {
+    console.log('Error signing out: ', error);
+  }
+}
 
 class BarChartScreen extends React.Component {
 
@@ -187,6 +200,14 @@ class BarChartScreen extends React.Component {
 
 
       <View style={{flex: 1, backgroundColor: '#0F0F16'}}>
+
+        <Button title="Sign Out" color="tomato" onPress={signOut} />
+
+
+          <Image 
+            //resizeMode="contain"
+            //style={styles.logo}
+            source={require("../../assets/favicon.png")} />
 
         <View style={{height:3*windowHeight/5}}>
           <Text style={{color: 'white'}}> selected entry</Text>

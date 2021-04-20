@@ -10,12 +10,17 @@ import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
 import ConfirmSignUp from './src/screens/ConfirmSignUp';
 import Home from './src/screens/Home';
-import Home2 from './src/screens/tabs/App'
+
 import ReportData from './src/screens/ReportData';
 import Graphs from './src/screens/Graphs';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
+import
+  MaterialCommunityIcons
+from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { Image } from 'react-native';
 
 import FirstPage from './src/screens/tabs/FirstPage';
 import SecondPage from './src/screens/tabs/SecondPage';
@@ -27,14 +32,14 @@ const AppStack = createStackNavigator();
 
 const Tab = createMaterialTopTabNavigator();
 
-
-function TabStack() {
+const TabStack = props => {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
       tabBarOptions={{
         activeTintColor: '#FFFFFF',
         inactiveTintColor: '#F8F8F8',
+        showIcon: true,
         style: {
           backgroundColor: '#633689',
         },
@@ -47,30 +52,36 @@ function TabStack() {
         },
       }}>
       <Tab.Screen
-        name="FirstPage"
-        component={FirstPage}
+        name="Home"
+        component={screenProps => (
+          <Home {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
+        
         options={{
-          tabBarLabel: 'Home',
-          // tabBarIcon: ({ color, size }) => (
-          //   <MaterialCommunityIcons
-          //       name="home"
-          //       color={color}
-          //       size={size}
-          //     />
-          // ),
-        }}  />
+          tabBarLabel: 'Home12',
+          tabBarIcon: ({ color, size }) => (
+            <Image 
+            //resizeMode="contain"
+            //style={styles.logo}
+            source={require("./src/assets/favicon.png")} />
+          ),
+        }}  >
+
+        {/* {screenProps => (<Home {...screenProps} updateAuthState={props.updateAuthState} />)}   */}
+
+      </Tab.Screen>
       <Tab.Screen
         name="SecondPage"
         component={SecondPage}
         options={{
           tabBarLabel: 'Setting',
-          // tabBarIcon: ({ color, size }) => (
-          //   <MaterialCommunityIcons
-          //       name="settings"
-          //       color={color}
-          //       size={size}
-          //     />
-          // ),
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+                name="settings"
+                color={color}
+                size={size}
+              />
+          ),
         }} />
     </Tab.Navigator>
   );
@@ -105,15 +116,21 @@ const AppNavigator = props => {
       headerTintColor: '#fff',
       headerTitleStyle: { fontWeight: 'bold' }}}>
 
+
+
       <AppStack.Screen
         name="TabStack"
-        component={TabStack}
+        component={screenProps => (
+          <TabStack {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
         options={{ title: 'Tab Stack' }}
       />
 
-      <AppStack.Screen name="Home2">
+ 
+
+      <AppStack.Screen name="Home">
         {screenProps => (
-          <Home2 {...screenProps} updateAuthState={props.updateAuthState} />
+          <Home {...screenProps} updateAuthState={props.updateAuthState} />
         )}
       </AppStack.Screen>
 
