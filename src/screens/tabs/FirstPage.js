@@ -204,11 +204,6 @@ class BarChartScreen extends React.Component {
         <Button title="Sign Out" color="tomato" onPress={signOut} />
 
 
-          <Image 
-            //resizeMode="contain"
-            //style={styles.logo}
-            source={require("../../assets/favicon.png")} />
-
         <View style={{height:3*windowHeight/5}}>
           <Text style={{color: 'white'}}> selected entry</Text>
           <Text style={{color: 'white'}}> {this.state.selectedEntry}</Text>

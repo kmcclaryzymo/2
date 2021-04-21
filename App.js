@@ -37,20 +37,33 @@ const TabStack = props => {
     <Tab.Navigator
       initialRouteName="Feed"
       tabBarOptions={{
-        activeTintColor: '#FFFFFF',
-        inactiveTintColor: '#F8F8F8',
+        activeTintColor: 'dodgerblue',
+        inactiveTintColor: 'white',
         showIcon: true,
+        showLabel: false,
         style: {
-          backgroundColor: '#633689',
+          //height:100,
+          backgroundColor: 'black',
         },
         labelStyle: {
           textAlign: 'center',
+          alignItems: 'center',
+        },
+        iconStyle: {
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: 50,
+          //width: 20
+          activeTintColor: 'dodgerblue'
         },
         indicatorStyle: {
-          borderBottomColor: '#87B56A',
-          borderBottomWidth: 2,
+          borderBottomColor: 'dodgerblue',
+          borderBottomWidth: 4,
         },
       }}>
+
+
+        
       <Tab.Screen
         name="Home"
         component={screenProps => (
@@ -58,31 +71,59 @@ const TabStack = props => {
         )}
         
         options={{
-          tabBarLabel: 'Home12',
+          //tabBarLabel: 'Home12',
           tabBarIcon: ({ color, size }) => (
-            <Image 
-            //resizeMode="contain"
-            //style={styles.logo}
-            source={require("./src/assets/favicon.png")} />
+            <Image style={{tintColor: color}} source={require("./src/assets/Results1.png")} />
           ),
         }}  >
 
         {/* {screenProps => (<Home {...screenProps} updateAuthState={props.updateAuthState} />)}   */}
 
       </Tab.Screen>
+
+
       <Tab.Screen
         name="SecondPage"
         component={SecondPage}
         options={{
           tabBarLabel: 'Setting',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-                name="settings"
-                color={color}
-                size={size}
-              />
+            <Image style={{tintColor: color}} source={require("./src/assets/PersonalTrends1.png")} />
           ),
         }} />
+
+
+      <Tab.Screen
+        name="SecondPage2"
+        component={SecondPage}
+        options={{
+          tabBarLabel: 'Setting',
+          tabBarIcon: ({ color, size }) => (
+            <Image style={{tintColor: color}} source={require("./src/assets/Survey1.png")} />
+          ),
+        }} />
+
+      <Tab.Screen
+        name="SecondPage3"
+        component={SecondPage}
+        options={{
+          tabBarLabel: 'Setting',
+          tabBarIcon: ({ color, size }) => (
+            <Image style={{tintColor: color}} source={require("./src/assets/CommunityTrends1.png")} />
+          ),
+        }} />
+
+
+      <Tab.Screen
+        name="SecondPage4"
+        component={SecondPage}
+        options={{
+          tabBarLabel: 'Setting',
+          tabBarIcon: ({ color, size }) => (
+            <Image style={{tintColor: color}} source={require("./src/assets/Settings1.png")} />
+          ),
+        }} />
+
     </Tab.Navigator>
   );
 }
@@ -109,8 +150,9 @@ const AuthenticationNavigator = props => {
 
 const AppNavigator = props => {
   return (
-    <AppStack.Navigator         
+    <AppStack.Navigator
     initialRouteName="Settings"
+    headerMode="none"
     screenOptions={{
       headerStyle: { backgroundColor: '#633689' },
       headerTintColor: '#fff',
