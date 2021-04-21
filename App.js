@@ -9,10 +9,13 @@ import config from './src/aws-exports';
 import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
 import ConfirmSignUp from './src/screens/ConfirmSignUp';
-import Home from './src/screens/Home';
 
-import ReportData from './src/screens/ReportData';
-import Graphs from './src/screens/Graphs';
+
+import Settings from './src/screens/Settings'
+import Results from './src/screens/Results'
+import PersonalTrends from './src/screens/PersonalTrends'
+import Survey from './src/screens/Survey'
+import CommunityTrends from './src/screens/CommunityTrends'
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
@@ -22,8 +25,7 @@ from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Image } from 'react-native';
 
-import FirstPage from './src/screens/tabs/FirstPage';
-import SecondPage from './src/screens/tabs/SecondPage';
+
 Amplify.configure(config);
 
 
@@ -65,28 +67,25 @@ const TabStack = props => {
 
         
       <Tab.Screen
-        name="Home"
+        name="Results"
         component={screenProps => (
-          <Home {...screenProps} updateAuthState={props.updateAuthState} />
+          <Results {...screenProps} updateAuthState={props.updateAuthState} />
         )}
-        
         options={{
-          //tabBarLabel: 'Home12',
+          tabBarLabel: 'Results',
           tabBarIcon: ({ color, size }) => (
             <Image style={{tintColor: color}} source={require("./src/assets/Results1.png")} />
           ),
-        }}  >
-
-        {/* {screenProps => (<Home {...screenProps} updateAuthState={props.updateAuthState} />)}   */}
-
-      </Tab.Screen>
+        }}  />
 
 
       <Tab.Screen
-        name="SecondPage"
-        component={SecondPage}
+        name="PersonalTrends"
+        component={screenProps => (
+          <PersonalTrends {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
         options={{
-          tabBarLabel: 'Setting',
+          tabBarLabel: 'PersonalTrends',
           tabBarIcon: ({ color, size }) => (
             <Image style={{tintColor: color}} source={require("./src/assets/PersonalTrends1.png")} />
           ),
@@ -94,20 +93,25 @@ const TabStack = props => {
 
 
       <Tab.Screen
-        name="SecondPage2"
-        component={SecondPage}
+        name="Survey"
+        component={screenProps => (
+          <Survey {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
         options={{
-          tabBarLabel: 'Setting',
+          tabBarLabel: 'Survey',
           tabBarIcon: ({ color, size }) => (
             <Image style={{tintColor: color}} source={require("./src/assets/Survey1.png")} />
           ),
         }} />
 
+
       <Tab.Screen
-        name="SecondPage3"
-        component={SecondPage}
+        name="CommunityTrends"
+        component={screenProps => (
+          <CommunityTrends {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
         options={{
-          tabBarLabel: 'Setting',
+          tabBarLabel: 'CommunityTrends',
           tabBarIcon: ({ color, size }) => (
             <Image style={{tintColor: color}} source={require("./src/assets/CommunityTrends1.png")} />
           ),
@@ -115,10 +119,12 @@ const TabStack = props => {
 
 
       <Tab.Screen
-        name="SecondPage4"
-        component={SecondPage}
+        name="Settings"
+        component={screenProps => (
+          <Settings {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
         options={{
-          tabBarLabel: 'Setting',
+          tabBarLabel: 'Settings',
           tabBarIcon: ({ color, size }) => (
             <Image style={{tintColor: color}} source={require("./src/assets/Settings1.png")} />
           ),
@@ -158,8 +164,6 @@ const AppNavigator = props => {
       headerTintColor: '#fff',
       headerTitleStyle: { fontWeight: 'bold' }}}>
 
-
-
       <AppStack.Screen
         name="TabStack"
         component={screenProps => (
@@ -167,26 +171,6 @@ const AppNavigator = props => {
         )}
         options={{ title: 'Tab Stack' }}
       />
-
- 
-
-      <AppStack.Screen name="Home">
-        {screenProps => (
-          <Home {...screenProps} updateAuthState={props.updateAuthState} />
-        )}
-      </AppStack.Screen>
-
-      <AppStack.Screen name="ReportData">
-        {screenProps => (
-          <ReportData {...screenProps} updateAuthState={props.updateAuthState} />
-        )}
-      </AppStack.Screen>
-
-      <AppStack.Screen name="Graphs">
-        {screenProps => (
-          <Graphs {...screenProps} updateAuthState={props.updateAuthState} />
-        )}
-      </AppStack.Screen>
 
     </AppStack.Navigator>
   );

@@ -23,14 +23,7 @@ const GREY = processColor('#0E1936');
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-async function signOut() {
-  try {
-    await Auth.signOut();
-    updateAuthState('loggedOut');
-  } catch (error) {
-    console.log('Error signing out: ', error);
-  }
-}
+
 
 class BarChartScreen extends React.Component {
 
@@ -201,7 +194,6 @@ class BarChartScreen extends React.Component {
 
       <View style={{flex: 1, backgroundColor: '#0F0F16'}}>
 
-        <Button title="Sign Out" color="tomato" onPress={signOut} />
 
 
         <View style={{height:3*windowHeight/5}}>
