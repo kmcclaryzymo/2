@@ -18,9 +18,11 @@ export default class Combined extends Component {
     super();
     this.state = {
       xAxis: {
+        valueFormatterPattern: 'largeValue',
         valueFormatter: ['1990', '1991', '1992', '1993', '1994'],
         granularityEnabled: true,
-        granularity: 1
+        granularity: 1,
+        position: 'BOTTOM'
       },
 
       yAxis: {
@@ -29,8 +31,9 @@ export default class Combined extends Component {
           granularity: 10
         },
         right: {
-          granularityEnabled: true,
-          granularity: 100
+          enabled: false,
+        //   granularityEnabled: true,
+        //   granularity: 100
         }
       },
 
@@ -42,16 +45,16 @@ export default class Combined extends Component {
       },
 
       data: {
-        barData: {
-          dataSets: [{
-            values: [{y:[40, 30, 20], marker: ["row1", "row2", "row3"]}, {y:[10, 20, 10], marker:"second"}, {y:[30, 20, 50], marker:["hello", "world","third"]}, {y:[30, 50, 10], marker:"fourth"}],
-            label: 'Stacked Bar dataset',
-            config: {
-              colors: [processColor('#C0FF8C'), processColor('#FFF78C'), processColor('#FFD08C')],
-              stackLabels: ['Engineering', 'Sales', 'Marketing']
-            }
-          }],
-        },
+        // barData: {
+        //   dataSets: [{
+        //     values: [{y:[40, 30, 20], marker: ["row1", "row2", "row3"]}, {y:[10, 20, 10], marker:"second"}, {y:[30, 20, 50], marker:["hello", "world","third"]}, {y:[30, 50, 10], marker:"fourth"}],
+        //     label: 'Stacked Bar dataset',
+        //     config: {
+        //       colors: [processColor('#C0FF8C'), processColor('#FFF78C'), processColor('#FFD08C')],
+        //       stackLabels: ['Engineering', 'Sales', 'Marketing']
+        //     }
+        //   }],
+        // },
         lineData: {
           dataSets: [{
             values: [50, 100, 50, 100, 50],
@@ -60,98 +63,29 @@ export default class Combined extends Component {
             config: {
               drawValues: false,
               colors: [processColor('green')],
-              mode: "CUBIC_BEZIER",
+              //mode: "CUBIC_BEZIER",
               drawCircles: false,
               lineWidth: 2,
               axisDependency: "RIGHT",
             }
-          }, {
-            values: [100, 50, 100, 50, 100],
-            label: 'Cosine function',
+        //   }, {
+        //     values: [100, 50, 100, 50, 100],
+        //     label: 'Cosine function',
 
-            config: {
-              drawValues: false,
-              colors: [processColor('blue')],
-              mode: "CUBIC_BEZIER",
-              drawCircles: false,
-              lineWidth: 2,
-            }
+        //     config: {
+        //       drawValues: false,
+        //       colors: [processColor('blue')],
+        //       mode: "CUBIC_BEZIER",
+        //       drawCircles: false,
+        //       lineWidth: 2,
+        //     }
           }],
         },
-        bubbleData: {
-          dataSets: [{
-            values: [{
-              size: 2.3,
-              y: 180,
-              marker: "marker 1"
-            }, {
-              size: 1.4,
-              y: 150,
-              marker: "marker 2"
-            }, {
-              size: 2.0,
-              y: 106,
-              marker: "marker 3"
-            }, {
-              size: 5.0,
-              y: 100
-            }, {
-              size: 4.1,
-              y: 65
-            }],
-            label: 'Company A',
-            config: {
-              drawValues: false,
-              colors: [processColor('pink')],
-              axisDependency: "RIGHT",
-            }
-          }],
-        },
-        candleData: {
-          dataSets: [{
-            values: [{
-              shadowH: 20,
-              shadowL: 5,
-              open: 15,
-              close: 10,
-              marker: "marker 1"
-            }, {
-              shadowH: 30,
-              shadowL: 10,
-              open: 25,
-              close: 15,
-              marker: "marker 1"
-            }, {
-              shadowH: 10,
-              shadowL: 5,
-              open: 15,
-              close: 10,
-              marker: "marker 1"
-            }, {
-              shadowH: 50,
-              shadowL: 5,
-              open: 15,
-              close: 25
-            }],
-            label: 'Company A',
 
-            config: {
-              drawValues: false,
-              axisDependency: "RIGHT",
-              highlightColor: processColor('darkgray'),
 
-              shadowColor: processColor('black'),
-              shadowWidth: 1,
-              shadowColorSameAsCandle: true,
-              increasingColor: processColor('yellow'),
-              increasingPaintStyle: 'FILL',
-              decreasingColor: processColor('green')
-            }
-          }],
-        },
         scatterData: {
           dataSets: [{
-            values: [15, 40, 77, 81, 43],
+            values: [50, 100, 50, 100, 50],
             label: 'Company A',
 
             config: {
@@ -160,27 +94,109 @@ export default class Combined extends Component {
               scatterShape: 'SQUARE',
             }
 
-          }, {
-            values: [40, 5, 50, 23, 79],
-            label: 'Company B',
+          }, 
+          
+        //   {
+        //     values: [40, 5, 50, 23, 79],
+        //     label: 'Company B',
 
-            config: {
-              drawValues: false,
-              colors: [processColor('grey')],
-              scatterShape: 'CIRCLE',
-            }
-          }, {
-            values: [10, 55, 35, 90, 82],
-            label: 'Company C',
+        //     config: {
+        //       drawValues: false,
+        //       colors: [processColor('grey')],
+        //       scatterShape: 'CIRCLE',
+        //     }
+        //   }, 
+          
+        //   {
+        //     values: [10, 55, 35, 90, 82],
+        //     label: 'Company C',
 
-            config: {
-              drawValues: false,
-              axisDependency: "RIGHT",
-              colors: [processColor('brown')],
-              scatterShape: 'TRIANGLE',
-            }
-          }],
+        //     config: {
+        //       drawValues: false,
+        //       axisDependency: "RIGHT",
+        //       colors: [processColor('brown')],
+        //       scatterShape: 'TRIANGLE',
+        //     }
+        //   }
+        ],
         },
+
+
+
+
+
+        // bubbleData: {
+        //   dataSets: [{
+        //     values: [{
+        //       size: 2.3,
+        //       y: 180,
+        //       marker: "marker 1"
+        //     }, {
+        //       size: 1.4,
+        //       y: 150,
+        //       marker: "marker 2"
+        //     }, {
+        //       size: 2.0,
+        //       y: 106,
+        //       marker: "marker 3"
+        //     }, {
+        //       size: 5.0,
+        //       y: 100
+        //     }, {
+        //       size: 4.1,
+        //       y: 65
+        //     }],
+        //     label: 'Company A',
+        //     config: {
+        //       drawValues: false,
+        //       colors: [processColor('pink')],
+        //       axisDependency: "RIGHT",
+        //     }
+        //   }],
+        // },
+        // candleData: {
+        //   dataSets: [{
+        //     values: [{
+        //       shadowH: 20,
+        //       shadowL: 5,
+        //       open: 15,
+        //       close: 10,
+        //       marker: "marker 1"
+        //     }, {
+        //       shadowH: 30,
+        //       shadowL: 10,
+        //       open: 25,
+        //       close: 15,
+        //       marker: "marker 1"
+        //     }, {
+        //       shadowH: 10,
+        //       shadowL: 5,
+        //       open: 15,
+        //       close: 10,
+        //       marker: "marker 1"
+        //     }, {
+        //       shadowH: 50,
+        //       shadowL: 5,
+        //       open: 15,
+        //       close: 25
+        //     }],
+        //     label: 'Company A',
+
+        //     config: {
+        //       drawValues: false,
+        //       axisDependency: "RIGHT",
+        //       highlightColor: processColor('darkgray'),
+
+        //       shadowColor: processColor('black'),
+        //       shadowWidth: 1,
+        //       shadowColorSameAsCandle: true,
+        //       increasingColor: processColor('yellow'),
+        //       increasingPaintStyle: 'FILL',
+        //       decreasingColor: processColor('green')
+        //     }
+        //   }],
+        // },
+
       }
     };
 

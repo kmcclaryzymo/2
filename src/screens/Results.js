@@ -23,7 +23,7 @@ const GREY = processColor('#0E1936');
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-
+const testvalue = 12;
 
 class BarChartScreen extends React.Component {
 
@@ -60,11 +60,12 @@ class BarChartScreen extends React.Component {
             highlightColor: processColor('white'),
             valueTextSize: 15,
             valueTextColor: processColor('white'),
-
+            valueFormatter: "##.### years"
           }
         }],
         config: {
-          barWidth: 0.6
+          barWidth: 0.6,
+
         }
           // group: {
           //   fromX: number, // required
@@ -101,8 +102,9 @@ class BarChartScreen extends React.Component {
         valueFormatter: ['TOTAL'],
         granularityEnabled: true,
         granularity : 1,
-        textSize: 30,
-        textColor: processColor('white'),
+        textSize: 20,
+        textColor: processColor('deepskyblue'),
+        fontWeight: '900',
         drawGridLines: false,
         drawAxisLine: false,
         yOffset: 10,
@@ -114,7 +116,7 @@ class BarChartScreen extends React.Component {
         granularityEnabled: true,
         granularity : 1,
         textSize: 15,
-        textColor: processColor('white'),
+        textColor: processColor('deepskyblue'),
         drawGridLines: false,
         drawAxisLine: false,
         yOffset: 15,
@@ -145,9 +147,9 @@ class BarChartScreen extends React.Component {
         left: {
           axisMaximum: .7,
           axisMinimum: -.7,
-          labelCount: 5,
+          labelCount: 3,
           textSize: 10,
-          textColor: processColor('white'),
+          textColor: processColor('lightslategrey'),
           drawLabels: true,
           drawAxisLine: false,
           drawGridLines: true,
@@ -194,15 +196,162 @@ class BarChartScreen extends React.Component {
 
       <View style={{flex: 1, backgroundColor: '#0F0F16'}}>
 
+        <View style={{height:2.8*windowHeight/6}}>
+
+            <View >
+                {/* <Text style={{color: 'white'}}> selected entry</Text>
+                <Text style={{color: 'white'}}> {this.state.selectedEntry}</Text> */}
+                <Text 
+                    style={{
+                        color: "lightcyan", 
+                        height: 60, 
+                        textAlign: 'left', 
+                        textAlignVertical: 'center', 
+                        fontSize: 20, 
+                        fontWeight: 'bold',
+                        paddingLeft: 20,
+                        //textDecorationLine: 'underline'
+                    }}>
+                    RESULTS</Text>
+
+                <View style={{alignSelf: "center"}}>
+                    <Text 
+                        style={{
+                            color: "deepskyblue", 
+                            height: 70, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 60, 
+                            fontWeight: 'bold',
+                            //paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                        }}>
+                        DNAGE</Text>
 
 
-        <View style={{height:3*windowHeight/5}}>
-          <Text style={{color: 'white'}}> selected entry</Text>
-          <Text style={{color: 'white'}}> {this.state.selectedEntry}</Text>
+                        <Text 
+                        style={{
+                            color: "lightcyan", 
+                            height: 60, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 50, 
+                            fontWeight: 'bold',
+                            //paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                        }}>
+                        32.5</Text>
+
+                        <Text 
+                        style={{
+                            color: "lightsteelblue", 
+                            height: 30, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 15, 
+                            //fontWeight: 'bold',
+                            //paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                        }}>
+                        years</Text>
+                </View>
+
+                <View style={{height: 20}}></View>
+            </View>
+
+            <View style={styles.container}>
+
+
+
+                <View style={{width: windowWidth/2}}>
+                    <Text 
+                    style={{
+                        color: "deepskyblue", 
+                        height: 30, 
+                        textAlign: 'center', 
+                        textAlignVertical: 'center', 
+                        fontSize: 25, 
+                        fontWeight: 'bold',
+                        //paddingLeft: 20,
+                        //textDecorationLine: 'underline'
+                    }}>
+                    AGING RATE</Text>
+
+                    <Text 
+                    style={{
+                        color: "lightcyan", 
+                        height: 53, 
+                        textAlign: 'center', 
+                        textAlignVertical: 'center', 
+                        fontSize: 40, 
+                        fontWeight: 'bold',
+                        //paddingLeft: 20,
+                        //textDecorationLine: 'underline'
+                    }}>
+                    1.3</Text>
+                </View>
+
+                <View style={{width: windowWidth/2}}>
+                    <Text 
+                    style={{
+                        color: "deepskyblue", 
+                        height: 30, 
+                        textAlign: 'center', 
+                        textAlignVertical: 'center', 
+                        fontSize: 25, 
+                        fontWeight: 'bold',
+                        //paddingLeft: 20,
+                        //textDecorationLine: 'underline'
+                    }}>
+                    AGE SHIFT</Text>
+
+                    <Text 
+                    style={{
+                        color: "lightcyan", 
+                        height: 53, 
+                        textAlign: 'center', 
+                        textAlignVertical: 'center', 
+                        fontSize: 40, 
+                        fontWeight: 'bold',
+                        //paddingLeft: 20,
+                        //textDecorationLine: 'underline'
+                    }}>
+                    0.2</Text>
+
+                    <Text 
+                    style={{
+                        color: "lightsteelblue", 
+                        height: 20, 
+                        textAlign: 'center', 
+                        textAlignVertical: 'center', 
+                        fontSize: 12, 
+                        //fontWeight: 'bold',
+                        //paddingLeft: 20,
+                        //textDecorationLine: 'underline'
+                    }}>
+                    years older</Text>
+                </View>
+
+            </View>
+
         </View >
+        
+            <Text 
+                style={{
+                    backgroundColor: '#171717',
 
-        <View style={styles.container}>
+                    color: "lightsteelblue", 
+                    height: 90, 
+                    textAlign: 'center', 
+                    textAlignVertical: 'center', 
+                    fontSize: 22, 
+                    paddingLeft: 20,
+                    fontWeight: '500',
+                    //textDecorationLine: 'underline'
+                    }}>
+                AGE SHIFT - LIFESTYLE IMPACT</Text>
 
+        <View style={styles.container2}>
 
 
         <BarChart
@@ -221,7 +370,7 @@ class BarChartScreen extends React.Component {
             //gridBackgroundColor={processColor('white')}
             visibleRange={{x: { min: 1, max: 1 }}}
             drawBarShadow={false}
-            drawValueAboveBar={false}
+            drawValueAboveBar={true}
             drawHighlightArrow={true}
             onSelect={this.handleSelect.bind(this)}
             highlights={this.state.highlights}
@@ -271,6 +420,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#0F0F16'
+    
+  },
+  container2: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#171717'
     
   },
   chart1: {
