@@ -20,92 +20,96 @@ class TimeSeriesLineChartScreen extends React.Component {
       data: {},
       legend: {
         enabled: true,
-        textColor: processColor('red'),
+        textColor: processColor('white'),
         textSize: 12,
-        form: 'SQUARE',
+        form: 'LINE',
         formSize: 14,
         xEntrySpace: 10,
         yEntrySpace: 5,
         formToTextSpace: 5,
         wordWrapEnabled: true,
         maxSizePercent: 0.5,
+        horizontalAlignment: 'LEFT',
+        verticalAlignment: 'TOP',
+        drawInside: true,
         custom: {
-          colors: [processColor('red'), processColor('red')],
-          labels: ['REFER', 'USER',]
+          colors: [processColor('deepskyblue'),processColor('rebeccapurple')],
+          labels: ['DNAGE','AVERAGE'],
         }
       },
       marker: {
         enabled: true,
-        markerColor: processColor('#F0C0FF8C'),
-        textColor: processColor('white'),
+        markerColor: processColor('white'),
+        textColor: processColor('blue'),
         markerFontSize: 14,
       },
 
       selectedEntry: "",
-      yAxis: {left:{}, right: {enabled: false}}
+      yAxis: {left:{textColor: processColor('white'), drawGridLines: false, drawAxisLine: true, axisLineColor: processColor('white'), axisLineWidth: 2, drawLabels: false}, right: {enabled: false}},
+      xAxis: {textColor: processColor('white'), position: 'BOTTOM', drawGridLines: false, drawAxisLine: true, axisLineColor: processColor('white'), axisLineWidth: 2, drawLabels: false},
+
     }
 
   }
 
   componentDidMount() {
-    const size = 40;
+    const size = 0;
 
     this.setState(
       update(this.state, {
         data: {
           $set: {
-            dataSets: [
-                
-                {
-              values: this._randomParabolaValues(size),
+            dataSets: [{
+              values: [
+                {x: 31.8, y: 31.8, marker: "eat eat eat, never\n stop eat"},
+                {x: 33, y: 33, marker:""  },
+
+                ],
               label: 'refer',
               config: {
-                lineWidth: 2,
+                textColor: processColor('white'),
+                lineWidth: 1.5,
                 drawValues: false,
                 drawCircles: false,
-                highlightColor: processColor('red'),
-                color: processColor('red'),
+                highlightColor: processColor('white'),
+                color: processColor('rebeccapurple'),
                 drawFilled: false,
-                fillColor: processColor('blue'),
+                fillColor: processColor('white'),
                 fillAlpha: 60,
-                highlightEnabled: false,
+                highlightEnabled: true,
                 dashedLine: {
                   lineLength: 20,
                   spaceLength: 20
                 }
               }
-            },
-            
-            
-            {
+            }, {
               values: [
-                {x: 0, y: 0, marker: "a very long long long long long long long long \nmarker at top left"},
-                {x: 30, y: 90, marker: "eat eat eat, never\n stop eat"},
-                {x: 31, y: -13, marker:""  },
-                {x: 32, y: 10, marker: "test top center marker"},
-                {x: 33, y: -20, marker: "eat more"},
-],
+                {x: 32, y: 31.9, marker: "age shift = x"},
+                {x: 32.1, y: 32.05, marker:"age shift = x"  },
+                {x: 32.5, y: 32.65, marker: "age shift = x"},
+                {x: 32.9, y: 32.68, marker: "age shift = x"},
+
+                ],
 
               label: 'user',
               config: {
-                lineWidth: 1,
+                lineWidth: 2,
                 drawValues: true,
+
                 circleRadius: 5,
                 highlightEnabled: true,
-                drawHighlightIndicators: true,
-                color: processColor('red'),
-                drawFilled: true,
-                valueTextSize:10,
-                fillColor: processColor('red'),
+                drawHighlightIndicators: false,
+                color: processColor('deepskyblue'),
+                drawFilled: false,
+                valueTextSize:14,
+                fillColor: processColor('black'),
                 fillAlpha: 45,
-                valueFormatter: "###.0 test",
-                circleColor: processColor('red')
+                valueFormatter: "###.## yrs",
+                circleColor: processColor('deepskyblue'),
+                valueTextColor: processColor('white'),
+
               }
-            }
-        
-        
-        
-        ],
+            }],
           }
         }
       })
@@ -114,7 +118,7 @@ class TimeSeriesLineChartScreen extends React.Component {
 
   _randomParabolaValues(size: number) {
     return _.times(size, (index) => {
-      return {x: index, y: index }
+      return {x: index, y: index}
     });
   }
 
@@ -131,17 +135,37 @@ class TimeSeriesLineChartScreen extends React.Component {
 
   render() {
 
-    let borderColor = processColor("red");
+    let borderColor = processColor("white");
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: 'black'}}>
 
-        <View style={{height:80}}>
-          <Text> selected entry</Text>
-          <Text> {this.state.selectedEntry}</Text>
+        <View style={{height:350}}>
+          {/* <Text> selected entry</Text>
+          <Text> {this.state.selectedEntry}</Text> */}
+                <Text 
+                    style={{
+                        color: "lightcyan", 
+                        height: 60, 
+                        textAlign: 'left', 
+                        textAlignVertical: 'center', 
+                        fontSize: 20, 
+                        fontWeight: 'bold',
+                        paddingLeft: 20,
+                        //textDecorationLine: 'underline'
+                    }}>
+                TRENDS</Text>
         </View>
 
         <View style={styles.container}>
 
+          <View style={{transform: [{ rotateZ: '-90deg'}], height:25, justifyContent: 'center', alignItems: 'flex-end', alignSelf: 'center'}}>
+            <Text style={{fontSize: 15, color: 'black'}}> a</Text>
+          </View>
+
+          <View style={{transform: [{ rotateZ: '-90deg'}], height:25, justifyContent: 'center', alignItems: 'flex-end', alignSelf: 'center'}}>
+            <Text style={{fontSize: 15, color: 'white'}}>DNAge</Text>
+          </View>
+          
 
           <LineChart
             style={styles.chart}
@@ -149,24 +173,32 @@ class TimeSeriesLineChartScreen extends React.Component {
             chartDescription={{text: ''}}
             legend={this.state.legend}
             marker={this.state.marker}
-
-            drawGridBackground={true}
-
+            drawGridBackground={false}
+            
+            gridBackgroundColor={processColor('black')}
+            chartBackgroundColor={processColor('black')}
+            
             borderColor={borderColor}
-            borderWidth={1}
-            drawBorders={true}
-
+            borderWidth={0}
+            drawBorders={false}
             yAxis={this.state.yAxis}
-
+            xAxis={this.state.xAxis}
             
             onSelect={this.handleSelect.bind(this)}
             onChange={(event) => console.log(event.nativeEvent)}
 
             ref="chart"
           />
-        </View>
-      </View>
 
+          <View style={{transform: [{ rotateZ: '-90deg'}], height:25, justifyContent: 'center', alignItems: 'flex-end', alignSelf: 'center'}}>
+            <Text style={{fontSize: 15, color: 'black'}}> a</Text>
+          </View>
+
+        </View>
+        <View style={{backgroundColor: 'black', paddingLeft: 60, height:25, justifyContent: 'center', alignSelf: 'center'}}>
+            <Text style={{fontSize: 15, color: 'white'}}>Calendar Age</Text>
+          </View>
+      </View>
 
     );
   }
@@ -175,12 +207,15 @@ class TimeSeriesLineChartScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF'
+    flexDirection: 'row',
+    //justifyContent: 'space-around',
+    backgroundColor: 'black'
   },
   chart: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'black'
+
   }
 });
-
 
 export default TimeSeriesLineChartScreen;
