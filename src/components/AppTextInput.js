@@ -16,6 +16,7 @@ export default function AppTextInput({ leftIcon, ...otherProps }) {
         style={styles.input}
         placeholderTextColor="#6e6869"
         {...otherProps}
+        
       />
     </View>
   );
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
   input: {
     width: '80%',
     fontSize: 18,
-    color: '#101010'
+    color: '#101010',
+    fontFamily: 'MontserratRegular-BWBEl'
   }
 });

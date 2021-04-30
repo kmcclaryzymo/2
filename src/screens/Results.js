@@ -7,17 +7,25 @@ import {
   processColor,
   Dimensions,
   Image,
-  Button
+  Button,
+  ScrollView,
+  ViewPropTypes
 
 } from 'react-native';
+
+import LinearGradient from 'react-native-linear-gradient';
 
 import {BarChart} from 'react-native-charts-wrapper';
 import { ClipPath } from 'react-native-svg';
 
 import { Auth } from 'aws-amplify';
 
-const GREEN = processColor('#71BD6A');
-const RED = processColor('#D14B5A');
+// const GREEN = processColor('#71BD6A');
+// const RED = processColor('#D14B5A');
+
+const GREEN = processColor('darkgreen');
+const RED = processColor('darkred');
+
 const GREY = processColor('#0E1936');
 
 const windowWidth = Dimensions.get('window').width;
@@ -28,10 +36,8 @@ const testvalue = 12;
 class BarChartScreen extends React.Component {
 
 
-
   constructor() {
     super();
-
 
     this.state = {
       description: {
@@ -50,17 +56,17 @@ class BarChartScreen extends React.Component {
       },
       data1: {
         dataSets: [{
-          values: [{y: -0.20}, {y: -0.6}, {y: 0.7}],
+          values: [{y: 0.40}],
           label: 'Bar dataSet',
           config: {
-            colors: [RED],
+            colors: [GREEN],
             barSpacePercent: 90,
             barShadowColor: processColor('white'),
-            highlightAlpha: 100,
+            highlightAlpha: 0,
             highlightColor: processColor('white'),
             valueTextSize: 15,
             valueTextColor: processColor('white'),
-            valueFormatter: "##.### years"
+            valueFormatter: "#.## yrs"
           }
         }],
         config: {
@@ -75,21 +81,23 @@ class BarChartScreen extends React.Component {
       },
       data2: {
         dataSets: [{
-          values: [{y: -0.3}, {y: -0.6}, {y: 0.7}, {y: -0.02}, {y: -0.05}, {y: 0.03}],
+          values: [{y: -0.1}, {y: -0.2}, {y: 0.7}, {y: -0.02}, {y: -0.05}, {y: 0.03}],
           label: 'Bar dataSet',
           config: {
             colors: [RED, RED, GREEN, RED, RED, GREEN],
             barSpacePercent: 10,
             barShadowColor: processColor('white'),
-            highlightAlpha: 100,
+            highlightAlpha: 0,
             highlightColor: processColor('white'),
-            valueTextSize: 15,
+            valueTextSize: 12,
             valueTextColor: processColor('white'),
+            valueFormatter: "#.## yrs"
+
 
           }
         }],
         config: {
-          barWidth: 0.6
+          barWidth: 0.5
         }
           // group: {
           //   fromX: number, // required
@@ -99,11 +107,11 @@ class BarChartScreen extends React.Component {
       },
       highlights: [{x: 3}, {x: 6}],
       xAxis1: {
-        valueFormatter: ['TOTAL'],
+        valueFormatter: ['TOTAL SHIFT'],
         granularityEnabled: true,
         granularity : 1,
-        textSize: 20,
-        textColor: processColor('deepskyblue'),
+        textSize: 18,
+        textColor: processColor('white'),
         fontWeight: '900',
         drawGridLines: false,
         drawAxisLine: false,
@@ -116,19 +124,18 @@ class BarChartScreen extends React.Component {
         granularityEnabled: true,
         granularity : 1,
         textSize: 15,
-        textColor: processColor('deepskyblue'),
+        textColor: processColor('white'),
         drawGridLines: false,
         drawAxisLine: false,
         yOffset: 15,
-
 
     
       },
       
       yAxis1: {
         left: {
-          axisMaximum: .7,
-          axisMinimum: -.7,
+          axisMaximum: .8,
+          axisMinimum: -.8,
           drawLabels: false,
           drawAxisLine: false,
           drawGridLines: false,
@@ -145,8 +152,8 @@ class BarChartScreen extends React.Component {
       yAxis2: {
         inverted: true,
         left: {
-          axisMaximum: .7,
-          axisMinimum: -.7,
+          axisMaximum: .8,
+          axisMinimum: -.8,
           labelCount: 3,
           textSize: 10,
           textColor: processColor('lightslategrey'),
@@ -188,228 +195,394 @@ class BarChartScreen extends React.Component {
     console.log(event.nativeEvent)
   }
 
-
   render() {
     return (
 
+<ScrollView>
+      <LinearGradient 
+            //colors={['#061419', '#14141f', 'black', '#14141f', '#061419']}
+            colors={['#080911', '#061419', '#14141f', '#061419', 'black']}
 
+            //style={{flex: 1}}
+            >
 
-      <View style={{flex: 1, backgroundColor: '#0F0F16'}}>
+        <View 
+            //colors={['white', 'blue']}
+            style={{
+              //height: windowHeight, 
+              //backgroundColor: 'white'
+              }}>
 
-        <View style={{height:2.8*windowHeight/6}}>
+            <View style={{
+                          flex: 1
+                          }}>
 
-            <View >
-                {/* <Text style={{color: 'white'}}> selected entry</Text>
-                <Text style={{color: 'white'}}> {this.state.selectedEntry}</Text> */}
-                <Text 
-                    style={{
-                        color: "lightcyan", 
-                        height: 60, 
-                        textAlign: 'left', 
-                        textAlignVertical: 'center', 
-                        fontSize: 20, 
-                        fontWeight: 'bold',
-                        paddingLeft: 20,
-                        //textDecorationLine: 'underline'
-                    }}>
-                    RESULTS</Text>
-
-                <View style={{alignSelf: "center"}}>
+                <View >
+                    {/* <Text style={{color: 'white'}}> selected entry</Text>
+                    <Text style={{color: 'white'}}> {this.state.selectedEntry}</Text> */}
                     <Text 
                         style={{
+                            color: "white", 
+                            height: 60, 
+                            textAlign: 'left', 
+                            textAlignVertical: 'center', 
+                            fontSize: 20, 
+                            fontWeight: 'bold',
+                            paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                            textShadowOffset: { width: 1, height: 1 },
+                            textShadowRadius: 1,
+                            textShadowColor: 'gray',
+                        }}>
+                        RESULTS</Text>
+
+                    <View style={{alignSelf: "center"}}>
+                        <Text 
+                            style={{
+                                color: "deepskyblue", 
+                                height: 90, 
+                                textAlign: 'center', 
+                                textAlignVertical: 'center', 
+                                fontSize: 60, 
+                                fontWeight: 'bold',
+                                textShadowOffset: { width: 1, height: 1 },
+                                textShadowRadius: 1,
+                                textShadowColor: 'white',
+                                //paddingLeft: 20,
+                                //textDecorationLine: 'underline'
+                            }}>
+                            DNAge</Text>
+
+                            <Text 
+                            style={{
+                                color: "white", 
+                                height: 75, 
+                                textAlign: 'center', 
+                                textAlignVertical: 'center', 
+                                fontSize: 50, 
+                                fontWeight: 'bold',
+                                //paddingLeft: 20,
+                                //textDecorationLine: 'underline'
+                                textShadowOffset: { width: 1, height: 1 },
+                                textShadowRadius: 1,
+                                textShadowColor: 'deepskyblue',
+                            }}>
+                            32.5</Text>
+
+                            <Text 
+                            style={{
+                                color: "lightsteelblue", 
+                                height: 30, 
+                                textAlign: 'center', 
+                                textAlignVertical: 'center', 
+                                fontSize: 15, 
+                                //fontWeight: 'bold',
+                                //paddingLeft: 20,
+                                //textDecorationLine: 'underline'
+                            }}>
+                            years</Text>
+                    </View>
+
+                    <View style={{height: 20}}></View>
+                </View>
+
+                <View style={{flex: 1,
+                              flexDirection: 'row',
+                              justifyContent: 'space-around',}}>
+
+
+                    <View style={{width: windowWidth/2}}>
+                        <Text 
+                        style={{
                             color: "deepskyblue", 
-                            height: 70, 
+                            height: 40, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 60, 
+                            fontSize: 25, 
                             fontWeight: 'bold',
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
+                            textShadowOffset: { width: .4, height: .4 },
+                            textShadowRadius: 1,
+                            textShadowColor: 'white',
                         }}>
-                        DNAGE</Text>
-
+                        AGING RATE</Text>
 
                         <Text 
                         style={{
-                            color: "lightcyan", 
-                            height: 60, 
+                            color: "white", 
+                            height: 53, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 50, 
+                            fontSize: 30, 
                             fontWeight: 'bold',
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
+                            textShadowOffset: { width: .4, height: .4 },
+                            textShadowRadius: 1,
+                            textShadowColor: 'deepskyblue',
                         }}>
-                        32.5</Text>
+                        1.3</Text>
 
                         <Text 
                         style={{
                             color: "lightsteelblue", 
-                            height: 30, 
+                            height: 20, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 15, 
+                            fontSize: 12, 
                             //fontWeight: 'bold',
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
                         }}>
-                        years</Text>
+                        years / year</Text>
+                    </View>
+
+                    <View style={{width: windowWidth/2}}>
+                        <Text 
+                        style={{
+                            color: "deepskyblue", 
+                            height: 40, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 25, 
+                            fontWeight: 'bold',
+                            //paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                            textShadowOffset: { width: .4, height: .4 },
+                            textShadowRadius: 1,
+                            textShadowColor: 'white',
+                        }}>
+                        AGE SHIFT</Text>
+
+                        <Text 
+                        style={{
+                            color: "white", 
+                            height: 53, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 30, 
+                            fontWeight: 'bold',
+                            //paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                            textShadowOffset: { width: .4, height: .4 },
+                            textShadowRadius: 1,
+                            textShadowColor: 'deepskyblue',
+                        }}>
+                        0.2</Text>
+
+                        <Text 
+                        style={{
+                            color: "lightsteelblue", 
+                            height: 20, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 12, 
+                            //fontWeight: 'bold',
+                            //paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                        }}>
+                        years older</Text>
+                    </View>
+
                 </View>
 
-                <View style={{height: 20}}></View>
+            </View >
+
+
+          </View>
+
+
+                                            
+          <View style={{
+                        //height: windowHeight, 
+                        //flex: 1, 
+                        //backgroundColor: 'black'
+                        }}>
+            <View style={{height: 20}}></View>
+              <View style={{}}>
+                <Text 
+                        style={{
+                            //backgroundColor: 'black',
+
+                            color: "white", 
+                            height: 90, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 25, 
+                            //paddingLeft: 20,
+                            fontWeight: 'bold',
+                            //textDecorationLine: 'underline'
+                            textShadowOffset: { width: .4, height: .4 },
+                            textShadowRadius: 1,
+                            textShadowColor: 'white',
+                            }}>
+                        Overview</Text>
+                </View>
+
+                <View style={{}}>
+                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 20}}>
+                        The DNAge® robustly detects epigenetic changes to determine biological
+                         age based on the aging clock built by UCLA professor Dr. Steve Horvath.
+                          Epigenetics is gene regulatory information layered on top of DNA. The
+                           reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
+                              {"\n"}{"\n"}
+                           The DNAge® robustly detects epigenetic changes to determine biological
+                         age based on the aging clock built by UCLA professor Dr. Steve Horvath.
+                          Epigenetics is gene regulatory information layered on top of DNA. The
+                           reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
+                  </Text>
+                </View>
+
+
             </View>
 
-            <View style={styles.container}>
+            <View style={{flex: 1,}}>
+                  <View style={{height: 20,}}>
+                            {/* <Text style={{height: 200, backgroundColor: 'black'}}>
+                              aaa
+                            </Text> */}
+                  </View>
+                  <Text 
+                      style={{
+                          //backgroundColor: 'black',
+
+                          color: "deepskyblue", 
+                          height: 90, 
+                          textAlign: 'center', 
+                          textAlignVertical: 'center', 
+                          fontSize: 25, 
+                          //paddingLeft: 20,
+                          fontWeight: 'bold',
+                          //textDecorationLine: 'underline'
+                          textShadowOffset: { width: .4, height: .4 },
+                          textShadowRadius: 1,
+                          textShadowColor: 'white',
+                          }}>
+                      AGE SHIFT & LIFESTYLE</Text>
 
 
+              <View style={{flexDirection: 'row'}}>
+                        
+                        
+                        <View style={{flex:1}}>
+                            <View style={{  
+                                    //flex:1,
+                                    //transform : [ { rotate: '270deg'}],   
+                                    //width: '25%',
+                                    //backgroundColor: 'black',
+                                        }}>
+                                <Text style={{ 
+                                          //flex: 1,
+                                          //backgroundColor: 'black',
+                                          width: 150,
+                                          transform : [ { rotate: '-90deg'},
+                                                        {translateX: -70},
+                                                        {translateY: -65}
+                                                      ],
+                                          fontSize: 13, 
+                                          color: 'white'}}>
+                                      Older     Younger
+                                  </Text>
+                              </View>
+                          </View>
 
-                <View style={{width: windowWidth/2}}>
-                    <Text 
-                    style={{
-                        color: "deepskyblue", 
-                        height: 30, 
-                        textAlign: 'center', 
-                        textAlignVertical: 'center', 
-                        fontSize: 25, 
-                        fontWeight: 'bold',
-                        //paddingLeft: 20,
-                        //textDecorationLine: 'underline'
-                    }}>
-                    AGING RATE</Text>
+                        <BarChart
+                            doubleTapToZoomEnabled={false}
+                            dragEnabled={false}
+                            // drawBorders={false}
+                            // borderWidth={0}
+                            // borderColor={RED}
+                            style={styles.chart1}
+                            data={this.state.data1}
+                            xAxis={this.state.xAxis1}
+                            yAxis={this.state.yAxis1}
+                            //animation={{durationY: 2000}}
+                            legend={this.state.legend}
+                            description={{text: ''}}
+                            //gridBackgroundColor={processColor('white')}
+                            visibleRange={{x: { min: 1, max: 1 }}}
+                            drawBarShadow={false}
+                            drawValueAboveBar={true}
+                            drawHighlightArrow={true}
+                            onSelect={this.handleSelect.bind(this)}
+                            highlights={this.state.highlights}
+                            onChange={(event) => console.log(event.nativeEvent)}
+                            chartDescription={{text: ''}}
 
-                    <Text 
-                    style={{
-                        color: "lightcyan", 
-                        height: 53, 
-                        textAlign: 'center', 
-                        textAlignVertical: 'center', 
-                        fontSize: 40, 
-                        fontWeight: 'bold',
-                        //paddingLeft: 20,
-                        //textDecorationLine: 'underline'
-                    }}>
-                    1.3</Text>
+                          />
+
+                          <BarChart
+                            doubleTapToZoomEnabled={false}
+                            drawBorders={false}
+                            borderWidth={1}
+                            borderColor={RED}
+                            style={styles.chart2}
+                            data={this.state.data2}
+                            xAxis={this.state.xAxis2}
+                            yAxis={this.state.yAxis2}
+                            //animation={{durationX: 2000, durationY: 2000}}
+                            legend={this.state.legend}
+                            description={{text: ''}}
+                            gridBackgroundColor={processColor('white')}
+                            visibleRange={{x: { min: 3, max: 3 }}}
+                            drawBarShadow={false}
+                            drawValueAboveBar={true}
+                            drawHighlightArrow={true}
+                            onSelect={this.handleSelect.bind(this)}
+                            highlights={this.state.highlights}
+                            onChange={(event) => console.log(event.nativeEvent)}
+                            chartDescription={{text: ''}}
+                          />
+                      </View>
+
                 </View>
 
-                <View style={{width: windowWidth/2}}>
-                    <Text 
-                    style={{
-                        color: "deepskyblue", 
-                        height: 30, 
-                        textAlign: 'center', 
-                        textAlignVertical: 'center', 
-                        fontSize: 25, 
-                        fontWeight: 'bold',
-                        //paddingLeft: 20,
-                        //textDecorationLine: 'underline'
-                    }}>
-                    AGE SHIFT</Text>
+                <View style={{
+                        //height: windowHeight, 
+                        //flex: 1, 
+                        //backgroundColor: 'black'
+                        }}>
+            <View style={{height: 2}}></View>
+              <View style={{}}>
+                <Text 
+                        style={{
+                            //backgroundColor: 'black',
 
-                    <Text 
-                    style={{
-                        color: "lightcyan", 
-                        height: 53, 
-                        textAlign: 'center', 
-                        textAlignVertical: 'center', 
-                        fontSize: 40, 
-                        fontWeight: 'bold',
-                        //paddingLeft: 20,
-                        //textDecorationLine: 'underline'
-                    }}>
-                    0.2</Text>
-
-                    <Text 
-                    style={{
-                        color: "lightsteelblue", 
-                        height: 20, 
-                        textAlign: 'center', 
-                        textAlignVertical: 'center', 
-                        fontSize: 12, 
-                        //fontWeight: 'bold',
-                        //paddingLeft: 20,
-                        //textDecorationLine: 'underline'
-                    }}>
-                    years older</Text>
+                            color: "white", 
+                            height: 90, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 25, 
+                            //paddingLeft: 20,
+                            fontWeight: 'bold',
+                            //textDecorationLine: 'underline'
+                            textShadowOffset: { width: .4, height: .4 },
+                            textShadowRadius: 1,
+                            textShadowColor: 'white',
+                            }}>
+                        Age Shift & Lifestyle Overview</Text>
                 </View>
+
+                <View style={{}}>
+                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 20}}>
+                        The DNAge® robustly detects epigenetic changes to determine biological
+                         age based on the aging clock built by UCLA professor Dr. Steve Horvath.
+                          Epigenetics is gene regulatory information layered on top of DNA. The
+                           reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
+                              {"\n"}{"\n"}
+                           The DNAge® robustly detects epigenetic changes to determine biological
+                         age based on the aging clock built by UCLA professor Dr. Steve Horvath.
+                          Epigenetics is gene regulatory information layered on top of DNA. The
+                           reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
+                  </Text>
+                </View>
+
 
             </View>
 
-        </View >
-        
-            <Text 
-                style={{
-                    backgroundColor: '#171717',
-
-                    color: "lightsteelblue", 
-                    height: 90, 
-                    textAlign: 'center', 
-                    textAlignVertical: 'center', 
-                    fontSize: 22, 
-                    paddingLeft: 20,
-                    fontWeight: '500',
-                    //textDecorationLine: 'underline'
-                    }}>
-                AGE SHIFT - LIFESTYLE IMPACT</Text>
-
-        <View style={styles.container2}>
-
-
-        <BarChart
-            doubleTapToZoomEnabled={false}
-            dragEnabled={false}
-            // drawBorders={false}
-            // borderWidth={0}
-            // borderColor={RED}
-            style={styles.chart1}
-            data={this.state.data1}
-            xAxis={this.state.xAxis1}
-            yAxis={this.state.yAxis1}
-            animation={{durationY: 2000}}
-            legend={this.state.legend}
-            description={{text: ''}}
-            //gridBackgroundColor={processColor('white')}
-            visibleRange={{x: { min: 1, max: 1 }}}
-            drawBarShadow={false}
-            drawValueAboveBar={true}
-            drawHighlightArrow={true}
-            onSelect={this.handleSelect.bind(this)}
-            highlights={this.state.highlights}
-            onChange={(event) => console.log(event.nativeEvent)}
-            chartDescription={{text: ''}}
-
-
-          />
-
-
-          <BarChart
-            doubleTapToZoomEnabled={false}
-
-            drawBorders={false}
-            borderWidth={1}
-            borderColor={RED}
-            style={styles.chart2}
-            data={this.state.data2}
-            xAxis={this.state.xAxis2}
-            yAxis={this.state.yAxis2}
-            //animation={{durationX: 2000, durationY: 2000}}
-            legend={this.state.legend}
-            description={{text: ''}}
-            gridBackgroundColor={processColor('white')}
-            visibleRange={{x: { min: 3, max: 3 }}}
-            drawBarShadow={false}
-            drawValueAboveBar={false}
-            drawHighlightArrow={true}
-            onSelect={this.handleSelect.bind(this)}
-            highlights={this.state.highlights}
-            onChange={(event) => console.log(event.nativeEvent)}
-            chartDescription={{text: ''}}
-
-          />
-
-
-
-        </View>
-      </View>
+      </LinearGradient>
+      </ScrollView>
     );
   }
 }
@@ -419,22 +592,27 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#0F0F16'
+    //backgroundColor: 'black'
     
   },
   container2: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#171717'
-    
+    //height:(2.8*windowHeight/6),
+    //justifyContent: 'space-around',
+    //backgroundColor: 'blue',
+    //width: windowWidth
   },
   chart1: {
-
-    width: (windowWidth/3)
+    flex: 12,
+    height: (1.4*windowHeight/5),
+    // width: (0.9*windowWidth/3)
   },
   chart2: {
-    width: (2*windowWidth/3)
+    flex: 25,
+    height: (1.4*windowHeight/5),
+    // width: (0.9*2*windowWidth/3)
+    //backgroundColor: 'white'
   }
 });
 

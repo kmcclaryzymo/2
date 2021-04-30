@@ -15,12 +15,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 15,
     width: '80%',
-    backgroundColor: 'tomato'
+    backgroundColor: 'fuchsia',
+    width: '75%'
   },
   buttonText: {
     color: 'white',
     fontSize: 18,
     fontWeight: '600',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    fontFamily: 'MontserratRegular-BWBEl',
+
+
   }
 });

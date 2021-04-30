@@ -16,6 +16,7 @@ import Results from './src/screens/Results'
 import PersonalTrends from './src/screens/PersonalTrends'
 import Survey from './src/screens/Survey'
 import CommunityTrends from './src/screens/CommunityTrends'
+import Learning from './src/screens/Learning'
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
@@ -27,6 +28,8 @@ import { Image } from 'react-native';
 
 
 Amplify.configure(config);
+
+console.disableYellowBox = true;
 
 
 const AuthenticationStack = createStackNavigator();
@@ -74,7 +77,7 @@ const TabStack = props => {
         options={{
           tabBarLabel: 'Results',
           tabBarIcon: ({ color, size }) => (
-            <Image style={{tintColor: color}} source={require("./src/assets/Results1.png")} />
+            <Image style={{tintColor: color, width: 50, height: 50}} source={require("./src/assets/Results2.png")} />
           ),
         }}  />
 
@@ -87,7 +90,7 @@ const TabStack = props => {
         options={{
           tabBarLabel: 'PersonalTrends',
           tabBarIcon: ({ color, size }) => (
-            <Image style={{tintColor: color}} source={require("./src/assets/PersonalTrends1.png")} />
+            <Image style={{tintColor: color, width: 50, height: 50}} source={require("./src/assets/PersonalTrends2.png")} />
           ),
         }} />
 
@@ -100,7 +103,7 @@ const TabStack = props => {
         options={{
           tabBarLabel: 'Survey',
           tabBarIcon: ({ color, size }) => (
-            <Image style={{tintColor: color}} source={require("./src/assets/Survey1.png")} />
+            <Image style={{tintColor: color, width: 50, height: 50}} source={require("./src/assets/Survey2.png")} />
           ),
         }} />
 
@@ -113,7 +116,20 @@ const TabStack = props => {
         options={{
           tabBarLabel: 'CommunityTrends',
           tabBarIcon: ({ color, size }) => (
-            <Image style={{tintColor: color}} source={require("./src/assets/CommunityTrends1.png")} />
+            <Image style={{tintColor: color, width: 50, height: 50}} source={require("./src/assets/CommunityTrends2.png")} />
+          ),
+        }} />
+
+
+      <Tab.Screen
+        name="Learning"
+        component={screenProps => (
+          <Learning {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
+        options={{
+          tabBarLabel: 'Learning',
+          tabBarIcon: ({ color, size }) => (
+            <Image style={{tintColor: color, width: 50, height: 50}} source={require("./src/assets/Learning2.png")} />
           ),
         }} />
 
@@ -126,7 +142,7 @@ const TabStack = props => {
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({ color, size }) => (
-            <Image style={{tintColor: color}} source={require("./src/assets/Settings1.png")} />
+            <Image style={{tintColor: color, width: 50, height: 50}} source={require("./src/assets/Settings2.png")} />
           ),
         }} />
 

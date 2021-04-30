@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, ImageBackground } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
+
+
+
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+
 export default function SignIn({ navigation, updateAuthState }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +26,11 @@ export default function SignIn({ navigation, updateAuthState }) {
   }
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
-      <View style={styles.container}>
+      {/* <ImageBackground source={'../assets/dnagebackground.jpg'} style={{width: windowWidth}}> */}
+      
+      <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, opacity: 20}}>
+        <View  style={styles.container}>
+        <Text style={styles.heading}>myDNAge</Text>
         <Text style={styles.title}>Sign in to your account</Text>
         <AppTextInput
           value={username}
@@ -28,6 +40,9 @@ export default function SignIn({ navigation, updateAuthState }) {
           autoCapitalize="none"
           keyboardType="email-address"
           textContentType="emailAddress"
+          fontSize={20}
+          style={{width: '75%', fontFamily: 'MontserratRegular-BWBEl'}}
+
         />
         <AppTextInput
           value={password}
@@ -38,6 +53,9 @@ export default function SignIn({ navigation, updateAuthState }) {
           autoCorrect={false}
           secureTextEntry
           textContentType="password"
+          fontSize={20}
+          style={{width: '75%', fontFamily: 'MontserratRegular-BWBEl'}}
+
         />
         <AppButton title="Login" onPress={signIn} />
         <View style={styles.footerButtonContainer}>
@@ -47,7 +65,9 @@ export default function SignIn({ navigation, updateAuthState }) {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+        </View>
+      </ImageBackground>
+      {/* </ImageBackground> */}
     </SafeAreaView>
   );
 }
@@ -56,17 +76,24 @@ export default function SignIn({ navigation, updateAuthState }) {
 const styles = StyleSheet.create({
       safeAreaContainer: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'black'
       },
       container: {
         flex: 1,
         alignItems: 'center'
       },
+      heading: {
+        fontSize: 50,
+        color: 'white',
+        marginVertical: 15,
+        fontFamily: 'MontserratBold-DOWZd',
+      },
       title: {
         fontSize: 20,
-        color: '#202020',
+        color: 'fuchsia',
         fontWeight: '500',
-        marginVertical: 15
+        marginVertical: 15,
+        fontFamily: 'MontserratBold-DOWZd'
       },
       footerButtonContainer: {
         marginVertical: 15,
@@ -74,8 +101,12 @@ const styles = StyleSheet.create({
         alignItems: 'center'
       },
       forgotPasswordButtonText: {
-        color: 'tomato',
+        color: 'fuchsia',
         fontSize: 18,
         fontWeight: '600'
+      },
+      backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover', // or 'stretch'
       }
     });
