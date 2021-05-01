@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { Auth } from 'aws-amplify';
 
 
-export default function Home({ navigation, updateAuthState }) {
+export default function Settings({ route, navigation, updateAuthState }) {
   async function signOut() {
     try {
       await Auth.signOut();
@@ -12,6 +12,25 @@ export default function Home({ navigation, updateAuthState }) {
       console.log('Error signing out: ', error);
     }
   }
+
+  let stringTitle = 'default'
+
+  getText()
+
+  function getText(){
+    try {
+      let title = route.params
+      stringTitle = title.title
+    }
+    catch{
+      console.log("noTitle")
+    }
+  }
+
+
+
+  // let title = route.params
+  // console.log(title)
 
 
 
@@ -26,7 +45,7 @@ export default function Home({ navigation, updateAuthState }) {
   return (
 
     <View style={styles.container}>
-      <Text>  + aaaa</Text>
+      <Text>  + aaaa {stringTitle}</Text>
       <Button title="Sign Out" color="tomato" onPress={signOut} />
       <Button title="Report Data" color="dodgerblue" onPress={goToReportData}/>
       <Button title="Graphs" color="gold" onPress={goToGraphs}/>

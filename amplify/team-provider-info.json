@@ -52,5 +52,23 @@
         "dnagetestc61de0d6": {}
       }
     }
+  },
+  "aprthirty": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dnagetest-aprthirty-160134-authRole",
+      "UnauthRoleArn": "arn:aws:iam::150776270530:role/amplify-dnagetest-aprthirty-160134-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::150776270530:role/amplify-dnagetest-aprthirty-160134-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-dnagetest-aprthirty-160134-deployment",
+      "UnauthRoleName": "amplify-dnagetest-aprthirty-160134-unauthRole",
+      "StackName": "amplify-dnagetest-aprthirty-160134",
+      "StackId": "arn:aws:cloudformation:us-west-2:150776270530:stack/amplify-dnagetest-aprthirty-160134/9db7c9a0-aa08-11eb-b347-025f78cff165",
+      "AmplifyAppId": "dw5pdfzicv34x"
+    },
+    "categories": {
+      "auth": {
+        "dnagetestc61de0d6": {}
+      }
+    }
   }
 }

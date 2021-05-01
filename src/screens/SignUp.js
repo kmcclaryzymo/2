@@ -4,7 +4,13 @@ import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
+import { run } from 'jest-cli';
+import { CognitoUserPool } from 'amazon-cognito-identity-js';
 export default function SignUp({ navigation }) {
+
+  let uName = ''
+
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -12,18 +18,34 @@ export default function SignUp({ navigation }) {
     try {
       await Auth.signUp({ username, password, attributes: { email } });
       console.log(' Sign-up Confirmed');
-      navigation.navigate('ConfirmSignUp');
+      console.log(uName)
+      console.log(username)
+      navigation.navigate('ConfirmSignUp', username);
     } catch (error) {
       console.log(' Error signing up...', error);
     }
   }
+
+  function run(text){
+    text => setEmail(text)
+    uName = text
+    console.log("a")
+    console.log(text)
+    console.log("abc " + uName)
+  }
+
+  let emailAd = ""
+
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <Text style={styles.title}>Create a new account</Text>
         <AppTextInput
           value={username}
-          onChangeText={text => setUsername(text)}
+          onChangeText={text => {setUsername(text)
+                                  run(text)
+                                  console.log(text)}}
+
           leftIcon="account"
           placeholder="Enter username"
           autoCapitalize="none"
@@ -32,7 +54,7 @@ export default function SignUp({ navigation }) {
         />
         <AppTextInput
           value={password}
-          onChangeText={text => setPassword(text)}
+          onChangeText={text => {setPassword(text)}}
           leftIcon="lock"
           placeholder="Enter password"
           autoCapitalize="none"
@@ -40,7 +62,7 @@ export default function SignUp({ navigation }) {
           secureTextEntry
           textContentType="password"
         />
-        <AppTextInput
+        {/* <AppTextInput
           value={email}
           onChangeText={text => setEmail(text)}
           leftIcon="email"
@@ -48,7 +70,7 @@ export default function SignUp({ navigation }) {
           autoCapitalize="none"
           keyboardType="email-address"
           textContentType="emailAddress"
-        />
+        /> */}
         <AppButton title="Sign Up" onPress={signUp} />
         <View style={styles.footerButtonContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
