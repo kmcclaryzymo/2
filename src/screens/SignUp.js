@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
 import { run } from 'jest-cli';
 import { CognitoUserPool } from 'amazon-cognito-identity-js';
+
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+
 export default function SignUp({ navigation }) {
 
   let uName = ''
@@ -38,6 +44,7 @@ export default function SignUp({ navigation }) {
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
+      <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, width: windowWidth, height: windowHeight, opacity: 20}}>
       <View style={styles.container}>
         <Text style={styles.title}>Create a new account</Text>
         <AppTextInput
@@ -80,6 +87,7 @@ export default function SignUp({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 }
@@ -87,15 +95,16 @@ export default function SignUp({ navigation }) {
 const styles = StyleSheet.create({
       safeAreaContainer: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'black'
       },
       container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        //justifyContent: 'center'
       },
       title: {
         fontSize: 20,
-        color: '#202020',
+        color: 'white',
         fontWeight: '500',
         marginVertical: 15
       },

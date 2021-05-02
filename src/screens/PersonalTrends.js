@@ -48,12 +48,12 @@ class TimeSeriesLineChartScreen extends React.Component {
       marker: {
         enabled: true,
         markerColor: processColor('black'),
-        textColor: processColor('deepskyblue'),
-        markerFontSize: 14,
+        textColor: processColor('white'),
+        markerFontSize: 26,
       },
       selectedEntry: "",
-      yAxis: {left:{textColor: processColor('white'), drawGridLines: false, drawAxisLine: true, axisLineColor: processColor('white'), axisLineWidth: 2, drawLabels: false}, right: {enabled: false}},
-      xAxis: {textColor: processColor('white'), position: 'BOTTOM', drawGridLines: false, drawAxisLine: true, axisLineColor: processColor('white'), axisLineWidth: 2, drawLabels: false},
+      yAxis: {left:{textColor: processColor('white'), drawGridLines: false, drawAxisLine: true, axisLineColor: processColor('white'), axisLineWidth: 2, drawLabels: false, axisMaximum: 34, axisMinimum: 31}, right: {enabled: false}},
+      xAxis: {textColor: processColor('white'), position: 'BOTTOM', drawGridLines: false, drawAxisLine: true, axisLineColor: processColor('white'), axisLineWidth: 2, drawLabels: false, axisMaximum: 34, axisMinimum: 31 },
       data2: {
         dataSets: [{
           values: [{y: 0.4}, {y: 0.0}, {y: -0.1}, {y: 0.2}],
@@ -252,8 +252,8 @@ class TimeSeriesLineChartScreen extends React.Component {
           $set: {
             dataSets: [{
               values: [
-                {x: 31.8, y: 31.8, marker: ""},
-                {x: 33, y: 33, marker:""  },
+                {x: 0, y: 0, marker: ""},
+                {x: 100, y: 100, marker:""  },
                 ],
               label: 'refer',
               config: {
@@ -274,6 +274,8 @@ class TimeSeriesLineChartScreen extends React.Component {
               }
             }, {
               values: [
+                {x: 1, y: 1, marker: "age shift = 0.4 yrs younger"},
+
                 {x: 32, y: 31.6, marker: "age shift = 0.4 yrs younger"},
                 {x: 32.1, y: 32.1, marker:"age shift = 0 yrs"  },
                 {x: 32.5, y: 32.6, marker: "age shift = 0.1 yrs older"},
@@ -288,7 +290,31 @@ class TimeSeriesLineChartScreen extends React.Component {
                 drawHighlightIndicators: false,
                 color: processColor('deepskyblue'),
                 drawFilled: false,
-                valueTextSize:14,
+                valueTextSize:0,
+                fillColor: processColor('black'),
+                fillAlpha: 45,
+                valueFormatter: "###.## yrs",
+                circleColor: processColor('white'),
+                valueTextColor: processColor('white'),
+              }
+            },
+            {
+              values: [
+                {x: 10000, y: 10000, marker: "age shift = 0.4 yrs younger"},
+
+                {x: 32.9, y: 32.7, marker: "age shift = 0.4 yrs younger"},
+,
+                ],
+              label: 'user',
+              config: {
+                lineWidth: 2,
+                drawValues: true,
+                circleRadius: 4,
+                highlightEnabled: true,
+                drawHighlightIndicators: false,
+                color: processColor('deepskyblue'),
+                drawFilled: false,
+                valueTextSize:0,
                 fillColor: processColor('black'),
                 fillAlpha: 45,
                 valueFormatter: "###.## yrs",

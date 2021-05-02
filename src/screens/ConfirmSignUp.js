@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../components/AppTextInput';
@@ -7,7 +7,8 @@ import AppButton from '../components/AppButton';
 import { run } from 'jest-cli';
 
 
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 
 export default function ConfirmSignUp({ route, navigation }) {
@@ -57,6 +58,8 @@ export default function ConfirmSignUp({ route, navigation }) {
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
+      <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, width: windowWidth, height: windowHeight, opacity: 20}}>
+
       <View style={styles.container}>
         <Text style={styles.title}>{uNameIn}</Text>
         <Text style={styles.title}>Confirm Sign Up</Text>
@@ -84,6 +87,7 @@ export default function ConfirmSignUp({ route, navigation }) {
 
 
       </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 }
@@ -92,7 +96,7 @@ export default function ConfirmSignUp({ route, navigation }) {
 const styles = StyleSheet.create({
   safeAreaContainer: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'black'
   },
   container: {
     flex: 1,
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    color: '#202020',
+    color: 'white',
     fontWeight: '500',
     marginVertical: 15
   }

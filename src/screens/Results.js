@@ -13,6 +13,10 @@ import {
 
 } from 'react-native';
 
+import ProgressCircle from 'react-native-progress-circle'
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
+
+
 import LinearGradient from 'react-native-linear-gradient';
 
 import {BarChart} from 'react-native-charts-wrapper';
@@ -267,7 +271,7 @@ class BarChartScreen extends React.Component {
                                 textShadowRadius: 1,
                                 textShadowColor: 'deepskyblue',
                             }}>
-                            32.5</Text>
+                            32.7</Text>
 
                             <Text 
                             style={{
@@ -291,98 +295,150 @@ class BarChartScreen extends React.Component {
                               justifyContent: 'space-around',}}>
 
 
-                    <View style={{width: windowWidth/2}}>
-                        <Text 
+<View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                    <Text 
                         style={{
                             color: "deepskyblue", 
-                            height: 40, 
+                            height: 45, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 25, 
+                            fontSize: 30, 
                             fontWeight: 'bold',
+                            
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
                             textShadowOffset: { width: .4, height: .4 },
                             textShadowRadius: 1,
                             textShadowColor: 'white',
                         }}>
-                        AGING RATE</Text>
+                        Age Shift</Text>
+                        <View style={{height: 10}}></View>
+                        <AnimatedCircularProgress
+                                size={110}
+                                width={8}
+                                fill={52}
+                                arcSweepAngle={180}
+                                rotation={270}
+                                tintColor="green"
+                                backgroundColor='lightsteelblue'>
+                                {
+                                  (fill) => (
+                                    <Text>
+                                      { this.state.fill }
 
-                        <Text 
-                        style={{
-                            color: "white", 
-                            height: 53, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                        }}>
-                        1.3</Text>
+                                      <View>
 
-                        <Text 
-                        style={{
-                            color: "lightsteelblue", 
-                            height: 20, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 12, 
-                            //fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                        }}>
-                        years / year</Text>
+
+                              <Text 
+                              style={{
+                                  color: "white", 
+                                  height: 37, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 30, 
+                                  fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                                  textShadowOffset: { width: .4, height: .4 },
+                                  textShadowRadius: 1,
+                                  textShadowColor: 'deepskyblue',
+                              }}>
+                              0.2</Text>
+
+                              <Text 
+                              style={{
+                                  color: "lightsteelblue", 
+                                  height: 20, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 11, 
+                                  //fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                              }}>
+                              years younger</Text>
+
+                              </View>
+
+                                    </Text>
+                                    
+                                  )
+                                }
+                              </AnimatedCircularProgress>
                     </View>
 
-                    <View style={{width: windowWidth/2}}>
-                        <Text 
+
+
+<View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                    <Text 
                         style={{
                             color: "deepskyblue", 
-                            height: 40, 
+                            height: 45, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 25, 
+                            fontSize: 30, 
                             fontWeight: 'bold',
+                            
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
                             textShadowOffset: { width: .4, height: .4 },
                             textShadowRadius: 1,
                             textShadowColor: 'white',
                         }}>
-                        AGE SHIFT</Text>
+                        Aging Rate</Text>
+                        <View style={{height: 10}}></View>
+                        <AnimatedCircularProgress
+                                size={110}
+                                width={8}
+                                fill={30}
+                                arcSweepAngle={180}
+                                rotation={270}
+                                tintColor="darkred"
+                                backgroundColor="#3d5875">
+                                {
+                                  (fill) => (
+                                    <Text>
+                                      { this.state.fill }
 
-                        <Text 
-                        style={{
-                            color: "white", 
-                            height: 53, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                        }}>
-                        0.2</Text>
+                                      <View>
 
-                        <Text 
-                        style={{
-                            color: "lightsteelblue", 
-                            height: 20, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 12, 
-                            //fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                        }}>
-                        years older</Text>
+
+                              <Text 
+                              style={{
+                                  color: "white", 
+                                  height: 37, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 30, 
+                                  fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                                  textShadowOffset: { width: .4, height: .4 },
+                                  textShadowRadius: 1,
+                                  textShadowColor: 'deepskyblue',
+                              }}>
+                              0.994</Text>
+
+                              <Text 
+                              style={{
+                                  color: "lightsteelblue", 
+                                  height: 20, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 11, 
+                                  //fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                              }}>
+                              years / year</Text>
+
+                              </View>
+
+                                    </Text>
+                                    
+                                  )
+                                }
+                              </AnimatedCircularProgress>
                     </View>
 
                 </View>

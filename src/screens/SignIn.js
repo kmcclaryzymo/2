@@ -28,7 +28,7 @@ export default function SignIn({ navigation, updateAuthState }) {
     <SafeAreaView style={styles.safeAreaContainer}>
       {/* <ImageBackground source={'../assets/dnagebackground.jpg'} style={{width: windowWidth}}> */}
       
-      <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, opacity: 20}}>
+      <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, width: windowWidth, height: windowHeight, opacity: 20}}>
         <View  style={styles.container}>
         <Text style={styles.heading}>myDNAge</Text>
         <Text style={styles.title}>Sign in to your account</Text>
