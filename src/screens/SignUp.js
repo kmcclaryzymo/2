@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Dimensions, Image } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../components/AppTextInput';
@@ -45,8 +45,19 @@ export default function SignUp({ navigation }) {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, width: windowWidth, height: windowHeight, opacity: 20}}>
-      <View style={styles.container}>
-        <Text style={styles.title}>Create a new account</Text>
+
+
+
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <View style={{height: 40}}></View>
+        <Image source={require('../assets/myDNAgelogo2.png')} style={{flex: 1, resizeMode: 'contain', 
+                                                                      transform: [{ scale: 0.68 }]
+                                                                      }}/>
+      </View>
+
+
+      <View style={{flex: 2, alignItems: 'center'}}>
+      <Text style={styles.title}>Sign up</Text>
         <AppTextInput
           value={username}
           onChangeText={text => {setUsername(text)
@@ -54,7 +65,7 @@ export default function SignUp({ navigation }) {
                                   console.log(text)}}
 
           leftIcon="account"
-          placeholder="Enter username"
+          placeholder="Create username"
           autoCapitalize="none"
           keyboardType="email-address"
           textContentType="emailAddress"
@@ -63,7 +74,7 @@ export default function SignUp({ navigation }) {
           value={password}
           onChangeText={text => {setPassword(text)}}
           leftIcon="lock"
-          placeholder="Enter password"
+          placeholder="Create password"
           autoCapitalize="none"
           autoCorrect={false}
           secureTextEntry
@@ -86,7 +97,11 @@ export default function SignUp({ navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
+
       </View>
+
+
+
       </ImageBackground>
     </SafeAreaView>
   );
@@ -102,11 +117,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         //justifyContent: 'center'
       },
+      heading: {
+        fontSize: 60,
+        color: 'limegreen',
+        marginVertical: 15,
+        fontFamily: 'MontserratBold-DOWZd',
+      },
       title: {
         fontSize: 20,
-        color: 'white',
+        color: '#F6D501',
         fontWeight: '500',
-        marginVertical: 15
+        marginVertical: 15,
+        fontFamily: 'MontserratBold-DOWZd'
       },
       footerButtonContainer: {
         marginVertical: 15,
@@ -114,7 +136,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
       },
       forgotPasswordButtonText: {
-        color: 'tomato',
+        color: 'white',
         fontSize: 18,
         fontWeight: '600'
       }

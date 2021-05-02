@@ -14,16 +14,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 15,
-    width: '80%',
-    backgroundColor: 'fuchsia',
-    width: '75%'
+    width: '75%',
+    backgroundColor: 'limegreen',
+    height: 55,
+
   },
   buttonText: {
     color: 'white',
     fontSize: 18,
-    fontWeight: '600',
+    //fontWeight: '600',
     textTransform: 'uppercase',
-    fontFamily: 'MontserratRegular-BWBEl',
+    fontFamily: 'MontserratBold-DOWZd'
 
 
   }

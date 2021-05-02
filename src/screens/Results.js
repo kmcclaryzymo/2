@@ -27,8 +27,15 @@ import { Auth } from 'aws-amplify';
 // const GREEN = processColor('#71BD6A');
 // const RED = processColor('#D14B5A');
 
-const GREEN = processColor('darkgreen');
-const RED = processColor('darkred');
+const GREEN = processColor('limegreen');
+const RED = processColor('firebrick');
+
+
+
+
+
+
+
 
 const GREY = processColor('#0E1936');
 
@@ -204,7 +211,7 @@ class BarChartScreen extends React.Component {
 
 <ScrollView>
       <LinearGradient 
-            //colors={['#061419', '#14141f', 'black', '#14141f', '#061419']}
+            //colors={['#100D1F', '#191628', '#232030', '#14141f', '#061419']}
             colors={['#080911', '#061419', '#14141f', '#061419', 'black']}
 
             //style={{flex: 1}}
@@ -231,27 +238,33 @@ class BarChartScreen extends React.Component {
                             textAlign: 'left', 
                             textAlignVertical: 'center', 
                             fontSize: 20, 
-                            fontWeight: 'bold',
+                            //fontWeight: 'bold',
                             paddingLeft: 20,
+                            fontFamily: 'MontserratBold-DOWZd'
+
                             //textDecorationLine: 'underline'
-                            textShadowOffset: { width: 1, height: 1 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'gray',
+                            // textShadowOffset: { width: 1, height: 1 },
+                            // textShadowRadius: 1,
+                            // textShadowColor: 'gray',
                         }}>
                         RESULTS</Text>
 
+
+<View style={{height: 20}}></View>
                     <View style={{alignSelf: "center"}}>
                         <Text 
                             style={{
-                                color: "deepskyblue", 
+                                color: "#F6D501", 
                                 height: 90, 
                                 textAlign: 'center', 
                                 textAlignVertical: 'center', 
                                 fontSize: 60, 
-                                fontWeight: 'bold',
-                                textShadowOffset: { width: 1, height: 1 },
-                                textShadowRadius: 1,
-                                textShadowColor: 'white',
+
+                                //fontWeight: 'bold',
+                                fontFamily: 'MontserratMedium-nRxlJ'
+                                // textShadowOffset: { width: 1, height: 1 },
+                                // textShadowRadius: 1,
+                                // textShadowColor: 'white',
                                 //paddingLeft: 20,
                                 //textDecorationLine: 'underline'
                             }}>
@@ -264,12 +277,15 @@ class BarChartScreen extends React.Component {
                                 textAlign: 'center', 
                                 textAlignVertical: 'center', 
                                 fontSize: 50, 
-                                fontWeight: 'bold',
+                                fontFamily: 'MontserratRegular-BWBEl',
+                                fontWeight: '500'
+
+                                //fontWeight: 'bold',
                                 //paddingLeft: 20,
                                 //textDecorationLine: 'underline'
-                                textShadowOffset: { width: 1, height: 1 },
-                                textShadowRadius: 1,
-                                textShadowColor: 'deepskyblue',
+                                // textShadowOffset: { width: 1, height: 1 },
+                                // textShadowRadius: 1,
+                                // textShadowColor: 'chartreuse',
                             }}>
                             32.7</Text>
 
@@ -280,6 +296,8 @@ class BarChartScreen extends React.Component {
                                 textAlign: 'center', 
                                 textAlignVertical: 'center', 
                                 fontSize: 15, 
+                                fontFamily: 'MontserratRegular-BWBEl'
+
                                 //fontWeight: 'bold',
                                 //paddingLeft: 20,
                                 //textDecorationLine: 'underline'
@@ -287,39 +305,93 @@ class BarChartScreen extends React.Component {
                             years</Text>
                     </View>
 
-                    <View style={{height: 20}}></View>
+                    <View style={{height: 30}}></View>
                 </View>
 
+
+                <View style={{
+                        //height: windowHeight, 
+                        //flex: 1, 
+                        //backgroundColor: 'black'
+                        }}>
+            {/* <View style={{height: 20}}></View> */}
+              <View style={{}}>
+                <Text 
+                        style={{
+                            //backgroundColor: 'black',
+
+                            color: "darkgray", 
+                            height: 50, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 25, 
+                            //paddingLeft: 20,
+                            fontFamily: 'MontserratMedium-nRxlJ'
+                            //textDecorationLine: 'underline'
+                            // textShadowOffset: { width: .4, height: .4 },
+                            // textShadowRadius: 1,
+                            // textShadowColor: 'white',
+                            }}>
+                        DNAge Test Overview</Text>
+                </View>
+                <View style={{height:7}}></View>
+                <View style={{}}>
+                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 32, 
+                                //fontFamily: 'MontserratRegular-BWBEl'
+                                }}>
+                        The DNAge® test robustly detects epigenetic changes to determine biological
+                         age based on the aging clock built by UCLA professor Dr. Steve Horvath.
+                          Epigenetics is gene regulatory information layered on top of DNA. The
+                           reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
+                           {"\n"}{"\n"}
+                           The DNAge® test robustly detects epigenetic changes to determine biological
+                         age based on the aging clock built by UCLA professor Dr. Steve Horvath.
+                          Epigenetics is gene regulatory information layered on top of DNA. The
+                           reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
+
+                  </Text>
+                </View>
+
+
+            </View>
+
+
+
                 <View style={{flex: 1,
-                              flexDirection: 'row',
+                              flexDirection: 'column',
                               justifyContent: 'space-around',}}>
 
-
+                    <View style={{height: 40}}></View>
 <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                     <Text 
                         style={{
-                            color: "deepskyblue", 
-                            height: 45, 
+                            color: "#F6D501", 
+                            height: 90, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            
+                            fontSize: 60, 
+                            //fontWeight: 'bold',
+                            transform : [ {translateY: 20}],
+                            fontFamily: 'MontserratMedium-nRxlJ'
+
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
+                            // textShadowOffset: { width: .4, height: .4 },
+                            // textShadowRadius: 1,
+                            // textShadowColor: 'white',
                         }}>
                         Age Shift</Text>
-                        <View style={{height: 10}}></View>
+                        <View style={{height: 40}}></View>
                         <AnimatedCircularProgress
-                                size={110}
-                                width={8}
+                                size={175}
+                                width={10}
+                                backgroundWidth={5}
+                                fillLineCap={'round'}
+                                lineCap={'round'}
                                 fill={52}
                                 arcSweepAngle={180}
                                 rotation={270}
-                                tintColor="green"
+                                tintColor="limegreen"
                                 backgroundColor='lightsteelblue'>
                                 {
                                   (fill) => (
@@ -332,26 +404,31 @@ class BarChartScreen extends React.Component {
                               <Text 
                               style={{
                                   color: "white", 
-                                  height: 37, 
+                                  height: 75, 
                                   textAlign: 'center', 
                                   textAlignVertical: 'center', 
-                                  fontSize: 30, 
-                                  fontWeight: 'bold',
+                                  fontSize: 50, 
+                                  //fontWeight: 'bold',
+                                  fontFamily: 'MontserratRegular-BWBEl',
+
                                   //paddingLeft: 20,
                                   //textDecorationLine: 'underline'
                                   textShadowOffset: { width: .4, height: .4 },
                                   textShadowRadius: 1,
                                   textShadowColor: 'deepskyblue',
+                                  //transform : [ {translateY: -5}],
                               }}>
                               0.2</Text>
 
                               <Text 
                               style={{
                                   color: "lightsteelblue", 
-                                  height: 20, 
+                                  height: 30, 
                                   textAlign: 'center', 
                                   textAlignVertical: 'center', 
-                                  fontSize: 11, 
+                                  fontSize: 15, 
+                                  transform : [ {translateY: -10}],
+
                                   //fontWeight: 'bold',
                                   //paddingLeft: 20,
                                   //textDecorationLine: 'underline'
@@ -369,77 +446,7 @@ class BarChartScreen extends React.Component {
 
 
 
-<View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-                    <Text 
-                        style={{
-                            color: "deepskyblue", 
-                            height: 45, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
-                        }}>
-                        Aging Rate</Text>
-                        <View style={{height: 10}}></View>
-                        <AnimatedCircularProgress
-                                size={110}
-                                width={8}
-                                fill={30}
-                                arcSweepAngle={180}
-                                rotation={270}
-                                tintColor="darkred"
-                                backgroundColor="#3d5875">
-                                {
-                                  (fill) => (
-                                    <Text>
-                                      { this.state.fill }
 
-                                      <View>
-
-
-                              <Text 
-                              style={{
-                                  color: "white", 
-                                  height: 37, 
-                                  textAlign: 'center', 
-                                  textAlignVertical: 'center', 
-                                  fontSize: 30, 
-                                  fontWeight: 'bold',
-                                  //paddingLeft: 20,
-                                  //textDecorationLine: 'underline'
-                                  textShadowOffset: { width: .4, height: .4 },
-                                  textShadowRadius: 1,
-                                  textShadowColor: 'deepskyblue',
-                              }}>
-                              0.994</Text>
-
-                              <Text 
-                              style={{
-                                  color: "lightsteelblue", 
-                                  height: 20, 
-                                  textAlign: 'center', 
-                                  textAlignVertical: 'center', 
-                                  fontSize: 11, 
-                                  //fontWeight: 'bold',
-                                  //paddingLeft: 20,
-                                  //textDecorationLine: 'underline'
-                              }}>
-                              years / year</Text>
-
-                              </View>
-
-                                    </Text>
-                                    
-                                  )
-                                }
-                              </AnimatedCircularProgress>
-                    </View>
 
                 </View>
 
@@ -455,30 +462,11 @@ class BarChartScreen extends React.Component {
                         //flex: 1, 
                         //backgroundColor: 'black'
                         }}>
-            <View style={{height: 20}}></View>
-              <View style={{}}>
-                <Text 
-                        style={{
-                            //backgroundColor: 'black',
 
-                            color: "white", 
-                            height: 90, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 25, 
-                            //paddingLeft: 20,
-                            fontWeight: 'bold',
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
-                            }}>
-                        Overview</Text>
-                </View>
-
+                <View style={{height: 20}}></View>
                 <View style={{}}>
-                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 20}}>
-                        The DNAge® robustly detects epigenetic changes to determine biological
+                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 20, transform : [ {translateY: -40}],}}>
+                        Age Shift is a measure of ....The DNAge® robustly detects epigenetic changes to determine biological
                          age based on the aging clock built by UCLA professor Dr. Steve Horvath.
                           Epigenetics is gene regulatory information layered on top of DNA. The
                            reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
@@ -494,28 +482,27 @@ class BarChartScreen extends React.Component {
             </View>
 
             <View style={{flex: 1,}}>
-                  <View style={{height: 20,}}>
-                            {/* <Text style={{height: 200, backgroundColor: 'black'}}>
-                              aaa
-                            </Text> */}
-                  </View>
+                  <View style={{height:20}}></View>
                   <Text 
                       style={{
                           //backgroundColor: 'black',
 
-                          color: "deepskyblue", 
+                          color: "#F6D501", 
                           height: 90, 
                           textAlign: 'center', 
                           textAlignVertical: 'center', 
-                          fontSize: 25, 
+                          fontSize: 35, 
                           //paddingLeft: 20,
-                          fontWeight: 'bold',
+                          //fontWeight: 'bold',
+                          paddingBottom: 20,
                           //textDecorationLine: 'underline'
-                          textShadowOffset: { width: .4, height: .4 },
-                          textShadowRadius: 1,
-                          textShadowColor: 'white',
+                          // textShadowOffset: { width: .4, height: .4 },
+                          // textShadowRadius: 1,
+                          // textShadowColor: 'white',
+                          fontFamily: 'MontserratMedium-nRxlJ'
+
                           }}>
-                      AGE SHIFT & LIFESTYLE</Text>
+                      Age Shift & Lifestyle</Text>
 
 
               <View style={{flexDirection: 'row'}}>
@@ -599,14 +586,13 @@ class BarChartScreen extends React.Component {
                         //flex: 1, 
                         //backgroundColor: 'black'
                         }}>
-            <View style={{height: 2}}></View>
               <View style={{}}>
                 <Text 
                         style={{
                             //backgroundColor: 'black',
 
                             color: "white", 
-                            height: 90, 
+                            height: 40, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
                             fontSize: 25, 

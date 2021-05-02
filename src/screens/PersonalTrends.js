@@ -12,6 +12,10 @@ import update from 'immutability-helper';
 import _ from 'lodash';
 import {LineChart, BarChart, CombinedChart} from 'react-native-charts-wrapper';
 import LinearGradient from 'react-native-linear-gradient';
+
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
+
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const GREEN = processColor('darkgreen');
@@ -365,120 +369,87 @@ class TimeSeriesLineChartScreen extends React.Component {
                         paddingLeft: 20,
                         //textDecorationLine: 'underline'
                     }}>
-                TRENDS</Text>
+                PERSONAL TRENDS</Text>
         </View>
         {/* <View style={{height: 20}}></View> */}
         <View style={{flex: 1}}>
-        <View style={{}}>
-                <Text 
-                        style={{
-                            //backgroundColor: 'black',
-                            color: "white", 
-                            height: 70, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 35, 
-                            //paddingLeft: 20,
-                            //fontWeight: 'bold',
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                            }}>
-                        Personal Bests</Text>
-                </View>
-            <View style={{flex: 1,
-                              flexDirection: 'row',
-                              justifyContent: 'space-around',}}>
-                    <View style={{width: windowWidth/2}}>
-                        <Text 
+
+                <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                    <Text 
                         style={{
                             color: "deepskyblue", 
-                            height: 40, 
+                            height: 90, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 15, 
+                            fontSize: 45, 
                             fontWeight: 'bold',
+                            transform : [ {translateY: 20}],
+
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
                             textShadowOffset: { width: .4, height: .4 },
                             textShadowRadius: 1,
                             textShadowColor: 'white',
                         }}>
-                        BEST AGE SHIFT</Text>
-                        <Text 
-                        style={{
-                            color: "white", 
-                            height: 53, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                        }}>
-                        0.4</Text>
-                        <Text 
-                        style={{
-                            color: "lightsteelblue", 
-                            height: 20, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 12, 
-                            //fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                        }}>
-                        years younger</Text>
+                         Best Age Shift</Text>
+                        <View style={{height: 20}}></View>
+                        <AnimatedCircularProgress
+                                size={220}
+                                width={20}
+                                fill={52}
+                                arcSweepAngle={180}
+                                rotation={270}
+                                tintColor="green"
+                                backgroundColor='lightsteelblue'>
+                                {
+                                  (fill) => (
+                                    <Text>
+                                      { this.state.fill }
+
+                                      <View>
+
+
+                              <Text 
+                              style={{
+                                  color: "white", 
+                                  height: 75, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 50, 
+                                  fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                                  textShadowOffset: { width: .4, height: .4 },
+                                  textShadowRadius: 1,
+                                  textShadowColor: 'deepskyblue',
+                                  transform : [ {translateY: -10}],
+                              }}>
+                              0.2</Text>
+
+                              <Text 
+                              style={{
+                                  color: "lightsteelblue", 
+                                  height: 30, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 15, 
+                                  transform : [ {translateY: -20}],
+
+                                  //fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                              }}>
+                              years younger</Text>
+
+                              </View>
+
+                                    </Text>
+                                    
+                                  )
+                                }
+                              </AnimatedCircularProgress>
                     </View>
-                    <View style={{width: windowWidth/2}}>
-                        <Text 
-                        style={{
-                            color: "deepskyblue", 
-                            height: 40, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 15, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
-                        }}>
-                        BEST AGING RATE</Text>
-                        <Text 
-                        style={{
-                            color: "white", 
-                            height: 53, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                        }}>
-                        1.003</Text>
-                        <Text 
-                        style={{
-                            color: "lightsteelblue", 
-                            height: 20, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 12, 
-                            //fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                        }}>
-                        years / year</Text>
-                    </View>
-                </View>
+
                 <View style={{height: 20}}></View>
                 <View style={{}}>
                 <Text 
@@ -498,98 +469,81 @@ class TimeSeriesLineChartScreen extends React.Component {
                             }}>
                         Personal Averages</Text>
                 </View>
-                <View style={{flex: 1,
-                              flexDirection: 'row',
-                              justifyContent: 'space-around',}}>
-                    <View style={{width: windowWidth/2}}>
+                <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                     <Text 
                         style={{
                             color: "deepskyblue", 
-                            height: 40, 
+                            height: 90, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 15, 
+                            fontSize: 60, 
                             fontWeight: 'bold',
+                            transform : [ {translateY: 20}],
+
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
                             textShadowOffset: { width: .4, height: .4 },
                             textShadowRadius: 1,
                             textShadowColor: 'white',
                         }}>
-                        AVG AGE SHIFT</Text>
-                        <Text 
-                        style={{
-                            color: "white", 
-                            height: 53, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                        }}>
-                        0.125</Text>
-                        <Text 
-                        style={{
-                            color: "lightsteelblue", 
-                            height: 20, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 12, 
-                            //fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                        }}>
-                        years younger</Text>
+                        Age Shift</Text>
+                        <View style={{height: 40}}></View>
+                        <AnimatedCircularProgress
+                                size={220}
+                                width={20}
+                                fill={52}
+                                arcSweepAngle={180}
+                                rotation={270}
+                                tintColor="green"
+                                backgroundColor='lightsteelblue'>
+                                {
+                                  (fill) => (
+                                    <Text>
+                                      { this.state.fill }
+
+                                      <View>
+
+
+                              <Text 
+                              style={{
+                                  color: "white", 
+                                  height: 75, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 50, 
+                                  fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                                  textShadowOffset: { width: .4, height: .4 },
+                                  textShadowRadius: 1,
+                                  textShadowColor: 'deepskyblue',
+                                  transform : [ {translateY: -10}],
+                              }}>
+                              0.2</Text>
+
+                              <Text 
+                              style={{
+                                  color: "lightsteelblue", 
+                                  height: 30, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 15, 
+                                  transform : [ {translateY: -20}],
+
+                                  //fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                              }}>
+                              years younger</Text>
+
+                              </View>
+
+                                    </Text>
+                                    
+                                  )
+                                }
+                              </AnimatedCircularProgress>
                     </View>
-                    <View style={{width: windowWidth/2}}>
-                        <Text 
-                        style={{
-                            color: "deepskyblue", 
-                            height: 40, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 15, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
-                        }}>
-                        AVG AGING RATE</Text>
-                        <Text 
-                        style={{
-                            color: "white", 
-                            height: 53, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 30, 
-                            fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                        }}>
-                        0.996</Text>
-                        <Text 
-                        style={{
-                            color: "lightsteelblue", 
-                            height: 20, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 12, 
-                            //fontWeight: 'bold',
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                        }}>
-                        years / year</Text>
-                    </View>
-                </View>
                   <View style={{height: 40}}></View>
         </View>
     <View style={{flex: 1}}>
@@ -609,7 +563,7 @@ class TimeSeriesLineChartScreen extends React.Component {
                             textShadowRadius: 1,
                             textShadowColor: 'deepskyblue',
                             }}>
-                        DNAge History</Text>
+                        DNAge Test History</Text>
                 </View>
                 <View style={{height: 10}}></View>
         <View style={styles.container}>

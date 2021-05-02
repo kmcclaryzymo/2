@@ -26,16 +26,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
     borderRadius: 25,
     flexDirection: 'row',
-    padding: 15,
-    marginVertical: 10
+    //padding: 15,
+    paddingLeft: 15,
+    marginVertical: 10,
+    height: 55,
+
   },
   icon: {
     marginRight: 10
   },
   input: {
-    width: '80%',
+    width: '75%',
     fontSize: 18,
     color: '#101010',
     fontFamily: 'MontserratRegular-BWBEl'
+    
   }
 });

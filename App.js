@@ -43,7 +43,7 @@ const TabStack = props => {
     <Tab.Navigator
       initialRouteName="Feed"
       tabBarOptions={{
-        activeTintColor: 'deepskyblue',
+        activeTintColor: 'limegreen',
         inactiveTintColor: 'white',
         showIcon: true,
         showLabel: false,
@@ -60,10 +60,10 @@ const TabStack = props => {
           justifyContent: 'center',
           height: 50,
           //width: 20
-          activeTintColor: 'deepskyblue'
+          activeTintColor: 'limegreen'
         },
         indicatorStyle: {
-          borderBottomColor: 'deepskyblue',
+          borderBottomColor: 'limegreen',
           borderBottomWidth: 4,
         },
       }}>
