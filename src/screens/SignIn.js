@@ -52,6 +52,8 @@ export default function SignIn({ navigation, updateAuthState }) {
               style={{width: '75%', fontFamily: 'MontserratRegular-BWBEl'}}
 
             />
+            {/* <View style={{height: 8}}></View> */}
+
             <AppTextInput
               value={password}
               onChangeText={text => setPassword(text)}
@@ -65,6 +67,9 @@ export default function SignIn({ navigation, updateAuthState }) {
               style={{width: '75%', fontFamily: 'MontserratRegular-BWBEl'}}
 
             />
+          {/* <View style={{height: 8}}></View> */}
+
+
             <AppButton title="Login" onPress={signIn} />
             <View style={styles.footerButtonContainer}>
               <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>

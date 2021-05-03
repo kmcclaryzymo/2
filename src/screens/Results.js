@@ -385,10 +385,10 @@ class BarChartScreen extends React.Component {
                         <AnimatedCircularProgress
                                 size={175}
                                 width={10}
-                                backgroundWidth={5}
+                                backgroundWidth={2.5}
                                 fillLineCap={'round'}
                                 lineCap={'round'}
-                                fill={52}
+                                fill={20}
                                 arcSweepAngle={180}
                                 rotation={270}
                                 tintColor="limegreen"
@@ -465,7 +465,7 @@ class BarChartScreen extends React.Component {
 
                 <View style={{height: 20}}></View>
                 <View style={{}}>
-                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 20, transform : [ {translateY: -40}],}}>
+                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 32, transform : [ {translateY: -40}],}}>
                         Age Shift is a measure of ....The DNAge® robustly detects epigenetic changes to determine biological
                          age based on the aging clock built by UCLA professor Dr. Steve Horvath.
                           Epigenetics is gene regulatory information layered on top of DNA. The
@@ -494,7 +494,7 @@ class BarChartScreen extends React.Component {
                           fontSize: 35, 
                           //paddingLeft: 20,
                           //fontWeight: 'bold',
-                          paddingBottom: 20,
+                          paddingBottom: 30,
                           //textDecorationLine: 'underline'
                           // textShadowOffset: { width: .4, height: .4 },
                           // textShadowRadius: 1,
@@ -505,7 +505,7 @@ class BarChartScreen extends React.Component {
                       Age Shift & Lifestyle</Text>
 
 
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row', paddingHorizontal: 32}}>
                         
                         
                         <View style={{flex:1}}>
@@ -591,23 +591,26 @@ class BarChartScreen extends React.Component {
                         style={{
                             //backgroundColor: 'black',
 
-                            color: "white", 
+                            color: "darkgray", 
                             height: 40, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
-                            fontSize: 25, 
+                            fontSize: 22, 
                             //paddingLeft: 20,
-                            fontWeight: 'bold',
+                            //fontWeight: 'bold',
                             //textDecorationLine: 'underline'
                             textShadowOffset: { width: .4, height: .4 },
                             textShadowRadius: 1,
                             textShadowColor: 'white',
+                            fontFamily: 'MontserratMedium-nRxlJ'
+
                             }}>
                         Age Shift & Lifestyle Overview</Text>
+                        <View style={{height: 10}}></View>
                 </View>
 
                 <View style={{}}>
-                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 20}}>
+                  <Text style={{color: 'white', textAlign: 'justify', paddingHorizontal: 32}}>
                         The DNAge® robustly detects epigenetic changes to determine biological
                          age based on the aging clock built by UCLA professor Dr. Steve Horvath.
                           Epigenetics is gene regulatory information layered on top of DNA. The

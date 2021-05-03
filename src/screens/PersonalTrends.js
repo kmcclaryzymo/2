@@ -15,11 +15,12 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
+const yellow = "#F6D501"
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-const GREEN = processColor('darkgreen');
-const RED = processColor('darkred');
+const GREEN = processColor('limegreen');
+const RED = processColor('firebrick');
 const BLUE1 = processColor('deepskyblue');
 const BLUE2 = processColor('deepskyblue');
 const BLUE3 = processColor('deepskyblue');
@@ -374,127 +375,40 @@ class TimeSeriesLineChartScreen extends React.Component {
         {/* <View style={{height: 20}}></View> */}
         <View style={{flex: 1}}>
 
-                <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{flex: 1,
+                              flexDirection: 'column',
+                              justifyContent: 'space-around',}}>
+
+<View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                     <Text 
                         style={{
-                            color: "deepskyblue", 
-                            height: 90, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 45, 
-                            fontWeight: 'bold',
-                            transform : [ {translateY: 20}],
-
-                            //paddingLeft: 20,
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
-                        }}>
-                         Best Age Shift</Text>
-                        <View style={{height: 20}}></View>
-                        <AnimatedCircularProgress
-                                size={220}
-                                width={20}
-                                fill={52}
-                                arcSweepAngle={180}
-                                rotation={270}
-                                tintColor="green"
-                                backgroundColor='lightsteelblue'>
-                                {
-                                  (fill) => (
-                                    <Text>
-                                      { this.state.fill }
-
-                                      <View>
-
-
-                              <Text 
-                              style={{
-                                  color: "white", 
-                                  height: 75, 
-                                  textAlign: 'center', 
-                                  textAlignVertical: 'center', 
-                                  fontSize: 50, 
-                                  fontWeight: 'bold',
-                                  //paddingLeft: 20,
-                                  //textDecorationLine: 'underline'
-                                  textShadowOffset: { width: .4, height: .4 },
-                                  textShadowRadius: 1,
-                                  textShadowColor: 'deepskyblue',
-                                  transform : [ {translateY: -10}],
-                              }}>
-                              0.2</Text>
-
-                              <Text 
-                              style={{
-                                  color: "lightsteelblue", 
-                                  height: 30, 
-                                  textAlign: 'center', 
-                                  textAlignVertical: 'center', 
-                                  fontSize: 15, 
-                                  transform : [ {translateY: -20}],
-
-                                  //fontWeight: 'bold',
-                                  //paddingLeft: 20,
-                                  //textDecorationLine: 'underline'
-                              }}>
-                              years younger</Text>
-
-                              </View>
-
-                                    </Text>
-                                    
-                                  )
-                                }
-                              </AnimatedCircularProgress>
-                    </View>
-
-                <View style={{height: 20}}></View>
-                <View style={{}}>
-                <Text 
-                        style={{
-                            //backgroundColor: 'black',
-                            color: "white", 
+                            color: "#F6D501", 
                             height: 70, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
                             fontSize: 35, 
-                            //paddingLeft: 20,
                             //fontWeight: 'bold',
-                            //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
-                            }}>
-                        Personal Averages</Text>
-                </View>
-                <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-                    <Text 
-                        style={{
-                            color: "deepskyblue", 
-                            height: 90, 
-                            textAlign: 'center', 
-                            textAlignVertical: 'center', 
-                            fontSize: 60, 
-                            fontWeight: 'bold',
                             transform : [ {translateY: 20}],
+                            fontFamily: 'MontserratMedium-nRxlJ'
 
                             //paddingLeft: 20,
                             //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
+                            // textShadowOffset: { width: .4, height: .4 },
+                            // textShadowRadius: 1,
+                            // textShadowColor: 'white',
                         }}>
-                        Age Shift</Text>
+                        Best Age Shift</Text>
                         <View style={{height: 40}}></View>
                         <AnimatedCircularProgress
-                                size={220}
-                                width={20}
-                                fill={52}
+                                size={175}
+                                width={10}
+                                backgroundWidth={2.5}
+                                fillLineCap={'round'}
+                                lineCap={'round'}
+                                fill={20}
                                 arcSweepAngle={180}
                                 rotation={270}
-                                tintColor="green"
+                                tintColor="limegreen"
                                 backgroundColor='lightsteelblue'>
                                 {
                                   (fill) => (
@@ -511,15 +425,17 @@ class TimeSeriesLineChartScreen extends React.Component {
                                   textAlign: 'center', 
                                   textAlignVertical: 'center', 
                                   fontSize: 50, 
-                                  fontWeight: 'bold',
+                                  //fontWeight: 'bold',
+                                  fontFamily: 'MontserratRegular-BWBEl',
+
                                   //paddingLeft: 20,
                                   //textDecorationLine: 'underline'
                                   textShadowOffset: { width: .4, height: .4 },
                                   textShadowRadius: 1,
                                   textShadowColor: 'deepskyblue',
-                                  transform : [ {translateY: -10}],
+                                  //transform : [ {translateY: -5}],
                               }}>
-                              0.2</Text>
+                              0.20</Text>
 
                               <Text 
                               style={{
@@ -528,7 +444,7 @@ class TimeSeriesLineChartScreen extends React.Component {
                                   textAlign: 'center', 
                                   textAlignVertical: 'center', 
                                   fontSize: 15, 
-                                  transform : [ {translateY: -20}],
+                                  transform : [ {translateY: -10}],
 
                                   //fontWeight: 'bold',
                                   //paddingLeft: 20,
@@ -544,14 +460,115 @@ class TimeSeriesLineChartScreen extends React.Component {
                                 }
                               </AnimatedCircularProgress>
                     </View>
-                  <View style={{height: 40}}></View>
+
+
+
+
+
+                </View>
+
+
+
+                <View style={{flex: 1,
+                              flexDirection: 'column',
+                              justifyContent: 'space-around',}}>
+
+<View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                    <Text 
+                        style={{
+                            color: "#F6D501", 
+                            height: 70, 
+                            textAlign: 'center', 
+                            textAlignVertical: 'center', 
+                            fontSize: 35, 
+                            //fontWeight: 'bold',
+                            transform : [ {translateY: 20}],
+                            fontFamily: 'MontserratMedium-nRxlJ'
+
+                            //paddingLeft: 20,
+                            //textDecorationLine: 'underline'
+                            // textShadowOffset: { width: .4, height: .4 },
+                            // textShadowRadius: 1,
+                            // textShadowColor: 'white',
+                        }}>
+                        Average Age Shift</Text>
+                        <View style={{height: 40}}></View>
+                        <AnimatedCircularProgress
+                                size={175}
+                                width={10}
+                                backgroundWidth={2.5}
+                                fillLineCap={'round'}
+                                lineCap={'round'}
+                                fill={10}
+                                arcSweepAngle={180}
+                                rotation={270}
+                                tintColor="limegreen"
+                                backgroundColor='lightsteelblue'>
+                                {
+                                  (fill) => (
+                                    <Text>
+                                      { this.state.fill }
+
+                                      <View>
+
+
+                              <Text 
+                              style={{
+                                  color: "white", 
+                                  height: 75, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 50, 
+                                  //fontWeight: 'bold',
+                                  fontFamily: 'MontserratRegular-BWBEl',
+
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                                  textShadowOffset: { width: .4, height: .4 },
+                                  textShadowRadius: 1,
+                                  textShadowColor: 'deepskyblue',
+                                  //transform : [ {translateY: -5}],
+                              }}>
+                              0.13</Text>
+
+                              <Text 
+                              style={{
+                                  color: "lightsteelblue", 
+                                  height: 30, 
+                                  textAlign: 'center', 
+                                  textAlignVertical: 'center', 
+                                  fontSize: 15, 
+                                  transform : [ {translateY: -10}],
+
+                                  //fontWeight: 'bold',
+                                  //paddingLeft: 20,
+                                  //textDecorationLine: 'underline'
+                              }}>
+                              years younger</Text>
+
+                              </View>
+
+                                    </Text>
+                                    
+                                  )
+                                }
+                              </AnimatedCircularProgress>
+                    </View>
+
+
+
+
+
+                </View>
+
+                  <View style={{height: 25}}></View>
         </View>
     <View style={{flex: 1}}>
     <View style={{}}>
                 <Text 
                         style={{
                             //backgroundColor: 'black',
-                            color: "white", 
+                            color: yellow, 
                             height: 70, 
                             textAlign: 'center', 
                             textAlignVertical: 'center', 
@@ -559,9 +576,11 @@ class TimeSeriesLineChartScreen extends React.Component {
                             //paddingLeft: 20,
                             //fontWeight: 'bold',
                             //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'deepskyblue',
+                            // textShadowOffset: { width: .4, height: .4 },
+                            // textShadowRadius: 1,
+                            // textShadowColor: 'deepskyblue',
+                            fontFamily: 'MontserratMedium-nRxlJ'
+
                             }}>
                         DNAge Test History</Text>
                 </View>
@@ -607,7 +626,7 @@ class TimeSeriesLineChartScreen extends React.Component {
                     <Text 
                             style={{
                                 //backgroundColor: 'black',
-                                color: "white", 
+                                color: yellow, 
                                 height: 70, 
                                 textAlign: 'center', 
                                 textAlignVertical: 'center', 
@@ -615,9 +634,11 @@ class TimeSeriesLineChartScreen extends React.Component {
                                 //paddingLeft: 20,
                                 //fontWeight: 'bold',
                                 //textDecorationLine: 'underline'
-                                textShadowOffset: { width: .4, height: .4 },
-                                textShadowRadius: 1,
-                                textShadowColor: 'deepskyblue',
+                                // textShadowOffset: { width: .4, height: .4 },
+                                // textShadowRadius: 1,
+                                // textShadowColor: 'deepskyblue',
+                                fontFamily: 'MontserratMedium-nRxlJ'
+
                                 }}>
                             Age Shift History</Text>
                     </View>
@@ -674,7 +695,7 @@ class TimeSeriesLineChartScreen extends React.Component {
                         <Text 
                                 style={{
                                     //backgroundColor: 'black',
-                                    color: "white", 
+                                    color: yellow, 
                                     height: 70, 
                                     textAlign: 'center', 
                                     textAlignVertical: 'center', 
@@ -682,9 +703,11 @@ class TimeSeriesLineChartScreen extends React.Component {
                                     //paddingLeft: 20,
                                     //fontWeight: 'bold',
                                     //textDecorationLine: 'underline'
-                                    textShadowOffset: { width: .4, height: .4 },
-                                    textShadowRadius: 1,
-                                    textShadowColor: 'deepskyblue',
+                                    // textShadowOffset: { width: .4, height: .4 },
+                                    // textShadowRadius: 1,
+                                    // textShadowColor: 'deepskyblue',
+                                    fontFamily: 'MontserratMedium-nRxlJ'
+
                                     }}>
                                 Aging Rate History</Text>
                         </View>
