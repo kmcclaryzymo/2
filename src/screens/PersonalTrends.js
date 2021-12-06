@@ -6,7 +6,9 @@ import {
   View,
   processColor,
   Dimensions,
-  ScrollView
+  ScrollView,
+  ImageBackground,
+  SafeAreaView
 } from 'react-native';
 import update from 'immutability-helper';
 import _ from 'lodash';
@@ -231,7 +233,7 @@ class TimeSeriesLineChartScreen extends React.Component {
         },
         scatterData: {
           dataSets: [{
-            values: [-2, 0.998, 1.000, 1.003, 0.994],
+            values: [-2, 0.998, 2.000, 1.003, 0.994],
             label: 'Company A',
             config: {
               colors: [processColor('deepskyblue')],
@@ -349,10 +351,15 @@ class TimeSeriesLineChartScreen extends React.Component {
   render() {
     let borderColor = processColor("white");
     return (
+      <SafeAreaView style={styles.safeAreaContainer}>
+      <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, width: windowWidth, height: windowHeight, opacity: 20}}>
+
       <ScrollView>
-      <LinearGradient            
-              colors={['#080911', '#061419', '#14141f', '#061419', 'black']
-              }> 
+        <LinearGradient
+        //colors={['#100D1F', '#191628', '#232030', '#14141f', '#061419']}
+        colors={['rgba(8, 9, 17, .5)', 'rgba(8, 9, 17, .7)', 'rgba(8, 9, 17, 1)', '#061419', '#061419', 'black']}
+        //style={{flex: 1}}
+        >
       <View style={{flex: 1, 
                     //backgroundColor: 'black'
                     }}>
@@ -409,14 +416,15 @@ class TimeSeriesLineChartScreen extends React.Component {
                                 arcSweepAngle={180}
                                 rotation={270}
                                 tintColor="limegreen"
-                                backgroundColor='lightsteelblue'>
+                                backgroundColor='lightsteelblue'
+                                duration={1}
+                                prefill={20}>
                                 {
                                   (fill) => (
                                     <Text>
                                       { this.state.fill }
 
                                       <View>
-
 
                               <Text 
                               style={{
@@ -464,9 +472,7 @@ class TimeSeriesLineChartScreen extends React.Component {
 
 
 
-
                 </View>
-
 
 
                 <View style={{flex: 1,
@@ -503,14 +509,16 @@ class TimeSeriesLineChartScreen extends React.Component {
                                 arcSweepAngle={180}
                                 rotation={270}
                                 tintColor="limegreen"
-                                backgroundColor='lightsteelblue'>
+                                backgroundColor='lightsteelblue'
+                                duration={1}
+                                prefill={10}
+                                >
                                 {
                                   (fill) => (
                                     <Text>
                                       { this.state.fill }
 
                                       <View>
-
 
                               <Text 
                               style={{
@@ -554,7 +562,6 @@ class TimeSeriesLineChartScreen extends React.Component {
                                 }
                               </AnimatedCircularProgress>
                     </View>
-
 
 
 
@@ -644,7 +651,6 @@ class TimeSeriesLineChartScreen extends React.Component {
                     </View>
                     <View style={{height: 10}}></View>
 
-
                     <View style={{flexDirection: 'row'}}>
                         
                         
@@ -687,7 +693,6 @@ class TimeSeriesLineChartScreen extends React.Component {
           />
         </View>
         </View>
-
 
       </View>
         <View style={{flex: 1}}>
@@ -762,10 +767,16 @@ class TimeSeriesLineChartScreen extends React.Component {
       </View>
       </LinearGradient>
       </ScrollView>
+      </ImageBackground>
+      </SafeAreaView>
     );
   }
 }
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    flex: 1,
+    backgroundColor: 'black'
+  },
   container: {
     flex: 1,
     flexDirection: 'row',

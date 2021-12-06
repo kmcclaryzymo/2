@@ -9,13 +9,14 @@ import {
   Image,
   Button,
   ScrollView,
-  ViewPropTypes
+  ViewPropTypes,
+  SafeAreaView,
+  ImageBackground
 
 } from 'react-native';
 
 import ProgressCircle from 'react-native-progress-circle'
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
-
 
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -36,7 +37,6 @@ const RED = processColor('firebrick');
 
 
 
-
 const GREY = processColor('#0E1936');
 
 const windowWidth = Dimensions.get('window').width;
@@ -45,7 +45,6 @@ const windowHeight = Dimensions.get('window').height;
 const testvalue = 12;
 
 class BarChartScreen extends React.Component {
-
 
   constructor() {
     super();
@@ -103,7 +102,6 @@ class BarChartScreen extends React.Component {
             valueTextSize: 12,
             valueTextColor: processColor('white'),
             valueFormatter: "#.## yrs"
-
 
           }
         }],
@@ -209,13 +207,15 @@ class BarChartScreen extends React.Component {
   render() {
     return (
 
-<ScrollView>
-      <LinearGradient 
-            //colors={['#100D1F', '#191628', '#232030', '#14141f', '#061419']}
-            colors={['#080911', '#061419', '#14141f', '#061419', 'black']}
+      <SafeAreaView style={styles.safeAreaContainer}>
+      <ImageBackground source={require('../assets/dna3.jpg')} imageStyle={{opacity:0.25}} style={{flex: 1, width: windowWidth, height: windowHeight, opacity: 20}}>
 
-            //style={{flex: 1}}
-            >
+      <ScrollView>
+        <LinearGradient
+        //colors={['#100D1F', '#191628', '#232030', '#14141f', '#061419']}
+        colors={['rgba(8, 9, 17, .5)', 'rgba(8, 9, 17, .5)', '#14141f', '#061419', 'black']}
+        //style={{flex: 1}}
+        >
 
         <View 
             //colors={['white', 'blue']}
@@ -248,7 +248,6 @@ class BarChartScreen extends React.Component {
                             // textShadowColor: 'gray',
                         }}>
                         RESULTS</Text>
-
 
 <View style={{height: 20}}></View>
                     <View style={{alignSelf: "center"}}>
@@ -308,7 +307,6 @@ class BarChartScreen extends React.Component {
                     <View style={{height: 30}}></View>
                 </View>
 
-
                 <View style={{
                         //height: windowHeight, 
                         //flex: 1, 
@@ -352,9 +350,7 @@ class BarChartScreen extends React.Component {
                   </Text>
                 </View>
 
-
             </View>
-
 
 
                 <View style={{flex: 1,
@@ -399,7 +395,6 @@ class BarChartScreen extends React.Component {
                                       { this.state.fill }
 
                                       <View>
-
 
                               <Text 
                               style={{
@@ -447,14 +442,11 @@ class BarChartScreen extends React.Component {
 
 
 
-
                 </View>
 
             </View >
 
-
           </View>
-
 
                                             
           <View style={{
@@ -477,7 +469,6 @@ class BarChartScreen extends React.Component {
                            reversible and dynamic nature of epigenetic marks makes DNAge® an ideal test to monitor lifestyle interventions.
                   </Text>
                 </View>
-
 
             </View>
 
@@ -503,7 +494,6 @@ class BarChartScreen extends React.Component {
 
                           }}>
                       Age Shift & Lifestyle</Text>
-
 
               <View style={{flexDirection: 'row', paddingHorizontal: 32}}>
                         
@@ -599,9 +589,9 @@ class BarChartScreen extends React.Component {
                             //paddingLeft: 20,
                             //fontWeight: 'bold',
                             //textDecorationLine: 'underline'
-                            textShadowOffset: { width: .4, height: .4 },
-                            textShadowRadius: 1,
-                            textShadowColor: 'white',
+                            // textShadowOffset: { width: .4, height: .4 },
+                            // textShadowRadius: 1,
+                            // textShadowColor: 'white',
                             fontFamily: 'MontserratMedium-nRxlJ'
 
                             }}>
@@ -623,16 +613,21 @@ class BarChartScreen extends React.Component {
                   </Text>
                 </View>
 
-
             </View>
 
       </LinearGradient>
       </ScrollView>
+      </ImageBackground>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    flex: 1,
+    backgroundColor: 'black'
+  },
   container: {
     flex: 1,
     flexDirection: 'row',
